@@ -223,7 +223,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 /* ─── SUCCESS POPUP COMPONENT ──────────────────────────── */
-function SuccessPopup({ message, onClose }) {
+function SuccessPopup({ message, onClose }: { message: string; onClose: () => void }) {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-[100] bg-black bg-opacity-50">
       <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 relative shadow-2xl animate-fadeIn">
@@ -258,7 +258,7 @@ function SuccessPopup({ message, onClose }) {
 }
 
 /* ─── APPOINTMENT MODAL COMPONENT ──────────────────────── */
-function AppointmentModal({ isOpen, onClose, selectedClinic, onSubmitSuccess }) {
+function AppointmentModal({ isOpen, onClose, selectedClinic, onSubmitSuccess }: { isOpen: boolean; onClose: () => void; selectedClinic: string | null; onSubmitSuccess: () => void }) {
   const [formData, setFormData] = useState({
     fullName: '',
     mobile: '',
