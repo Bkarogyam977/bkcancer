@@ -1129,7 +1129,7 @@ const youtubeVideos = [
 ];
 
 /* ─── SUCCESS POPUP COMPONENT ──────────────────────────── */
-function SuccessPopup({ message, onClose }) {
+function SuccessPopup({ message, onClose }: { message: string; onClose: () => void }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();
@@ -1325,7 +1325,7 @@ export default function HomePage() {
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -1333,7 +1333,7 @@ export default function HomePage() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
@@ -1409,7 +1409,7 @@ export default function HomePage() {
     }
   };
 
-  const openYouTubeVideo = (videoId) => {
+  const openYouTubeVideo = (videoId: string) => {
     window.open(`https://youtu.be/${videoId}`, '_blank');
   };
 
@@ -1563,7 +1563,7 @@ export default function HomePage() {
                   className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none focus:border-green-700"
                   required
                   pattern="[0-9]{10}"
-                  maxLength="10"
+                  maxLength={10}
                 />
                 
                 <input
