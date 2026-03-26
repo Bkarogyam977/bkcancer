@@ -1,229 +1,11 @@
-// "use client";
-
-// import Link from "next/link";
-// import { useState } from "react";
-
-// const clinics = [
-//   { city: "New Delhi (HQ)", address: "Second Floor, 77, Block C, Tarun Enclave, Pitampura, New Delhi, 110034" },
-//   { city: "Lucknow (Gomati Nagar)", address: "Gomati Nagar, Lucknow, Uttar Pradesh" },
-//   { city: "Lucknow (Vikas Nagar)", address: "Vikas Nagar, Lucknow, Uttar Pradesh" },
-//   { city: "Bangalore", address: "JP Nagar, Bangalore, Karnataka" },
-//   { city: "Noida", address: "Sector-12, Noida, Uttar Pradesh" },
-//   { city: "Mumbai", address: "Chakala, Mumbai, Maharashtra" },
-//   { city: "Gurugram", address: "Gurugram, Haryana" },
-//   { city: "Patna", address: "Ashiyana Nagar, Patna, Bihar" },
-// ];
-
-// export default function ContactPage() {
-//   const [submitted, setSubmitted] = useState(false);
-
-//   function handleSubmit(e: React.FormEvent) {
-//     e.preventDefault();
-//     setSubmitted(true);
-//   }
-
-//   return (
-//     <>
-//       {/* Banner */}
-//       <section style={{ backgroundColor: "#0D3B38" }} className="py-16">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-//           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-//             Contact <span style={{ color: "#F4A118" }}>Us</span>
-//           </h1>
-//           <p className="text-white/70 max-w-2xl mx-auto text-lg">
-//             Get in touch with our Ayurvedic experts for a free consultation and personalized treatment plan.
-//           </p>
-//           <div className="flex justify-center gap-2 mt-4 text-sm text-white/50">
-//             <Link href="/" className="hover:text-white transition">Home</Link>
-//             <span>/</span>
-//             <span style={{ color: "#F4A118" }}>Contact</span>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Contact Info + Form */}
-//       <section className="py-16 bg-white">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-//             {/* Info */}
-//             <div>
-//               <h2 className="text-3xl font-bold mb-6">
-//                 Get In <span style={{ color: "#F4A118" }}>Touch</span>
-//               </h2>
-//               <p className="text-gray-600 mb-8 leading-relaxed">
-//                 Our expert Ayurvedic doctors are available to guide you through your health journey. Reach out to us via phone, email, or by filling the form and we will get back to you shortly.
-//               </p>
-
-//               <div className="space-y-5">
-//                 <div className="flex gap-4 items-start">
-//                   <div style={{ backgroundColor: "#EEF7F4" }} className="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📍</div>
-//                   <div>
-//                     <p className="font-bold text-gray-800">Main Office</p>
-//                     <p className="text-gray-600 text-sm">Second Floor, 77, Block C, Tarun Enclave, Pitampura, New Delhi, Delhi, 110034</p>
-//                   </div>
-//                 </div>
-//                 <div className="flex gap-4 items-center">
-//                   <div style={{ backgroundColor: "#EEF7F4" }} className="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📞</div>
-//                   <div>
-//                     <p className="font-bold text-gray-800">Phone</p>
-//                     <a href="tel:+918081222333" style={{ color: "#0D3B38" }} className="font-semibold hover:underline">+91 8081222333</a>
-//                   </div>
-//                 </div>
-//                 <div className="flex gap-4 items-center">
-//                   <div style={{ backgroundColor: "#EEF7F4" }} className="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0">📧</div>
-//                   <div>
-//                     <p className="font-bold text-gray-800">Email</p>
-//                     <a href="mailto:bkarogyam@gmail.com" style={{ color: "#0D3B38" }} className="font-semibold hover:underline">bkarogyam@gmail.com</a>
-//                   </div>
-//                 </div>
-//                 <div className="flex gap-4 items-center">
-//                   <div style={{ backgroundColor: "#EEF7F4" }} className="w-12 h-12 rounded-xl flex items-center justify-center text-xl flex-shrink-0">⏰</div>
-//                   <div>
-//                     <p className="font-bold text-gray-800">Working Hours</p>
-//                     <p className="text-gray-600 text-sm">Mon – Sat: 9:00 AM – 7:00 PM</p>
-//                     <p className="text-gray-600 text-sm">Sunday: 10:00 AM – 4:00 PM</p>
-//                   </div>
-//                 </div>
-//               </div>
-
-//               {/* For International Patients */}
-//               <div style={{ backgroundColor: "#EEF7F4" }} className="rounded-xl p-5 mt-8">
-//                 <h3 className="font-bold text-gray-800 mb-3">International Patient Helplines</h3>
-//                 <div className="grid grid-cols-2 gap-3 text-sm">
-//                   <div>
-//                     <p className="text-gray-500">🇬🇧 UK Patients</p>
-//                     <p className="font-semibold text-gray-800">+447822023160</p>
-//                   </div>
-//                   <div>
-//                     <p className="text-gray-500">🇺🇸 USA Patients</p>
-//                     <p className="font-semibold text-gray-800">+19298008690</p>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-
-//             {/* Form */}
-//             <div style={{ backgroundColor: "#EEF7F4" }} className="rounded-2xl p-8">
-//               <h2 className="text-2xl font-bold mb-2" style={{ color: "#0D3B38" }}>Book a Free Consultation</h2>
-//               <p className="text-gray-500 text-sm mb-6">Our experts will call you back within 24 hours.</p>
-
-//               {submitted ? (
-//                 <div style={{ backgroundColor: "#0D3B38" }} className="rounded-xl p-8 text-center">
-//                   <div className="text-5xl mb-4">✅</div>
-//                   <h3 className="text-white font-bold text-xl mb-2">Thank You!</h3>
-//                   <p className="text-white/70">Our team will contact you shortly.</p>
-//                 </div>
-//               ) : (
-//                 <form onSubmit={handleSubmit} className="space-y-4">
-//                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-//                     <input required type="text" placeholder="Full Name*" className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-green-800" />
-//                     <input required type="tel" placeholder="Mobile Number*" className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-green-800" />
-//                   </div>
-//                   <input type="email" placeholder="Email Address" className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-green-800" />
-//                   <select className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none text-gray-600">
-//                     <option value="">Select Disease / Condition</option>
-//                     <option>Cancer</option>
-//                     <option>Kidney Disease</option>
-//                     <option>Diabetes</option>
-//                     <option>Liver Disease</option>
-//                     <option>Heart Disease</option>
-//                     <option>Arthritis</option>
-//                     <option>Thyroid</option>
-//                     <option>Blood Pressure</option>
-//                     <option>PCOD / PCOS</option>
-//                     <option>Obesity</option>
-//                     <option>Other</option>
-//                   </select>
-//                   <select className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none text-gray-600">
-//                     <option value="">Preferred Clinic Location</option>
-//                     {clinics.map((c) => (
-//                       <option key={c.city}>{c.city}</option>
-//                     ))}
-//                     <option>Online Consultation</option>
-//                   </select>
-//                   <textarea required placeholder="Describe your symptoms or health concern..." rows={4} className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none resize-none" />
-//                   <p style={{ color: "#0D3B38" }} className="text-center font-semibold text-sm">Get Best Ayurvedic Treatment</p>
-//                   <button type="submit" style={{ backgroundColor: "#F4A118" }} className="w-full py-3 rounded-lg text-white font-bold text-lg hover:opacity-90 transition">
-//                     Enquire Now
-//                   </button>
-//                   <p className="text-center text-gray-400 text-xs mt-2">
-//                     OR CALL: <a href="tel:+918081222333" style={{ color: "#0D3B38" }} className="font-bold">+91 8081222333</a>
-//                   </p>
-//                 </form>
-//               )}
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Our Clinics */}
-//       <section style={{ backgroundColor: "#EEF7F4" }} className="py-16">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
-//             <h2 className="text-4xl font-bold">
-//               Our <span style={{ color: "#F4A118" }}>Clinics</span>
-//             </h2>
-//             <div style={{ backgroundColor: "#0D3B38" }} className="rounded-xl px-6 py-3 text-center">
-//               <p style={{ color: "#F4A118" }} className="font-bold text-xl">17 Locations</p>
-//               <p className="text-white text-sm">6 Hospitals | 11 Clinics</p>
-//             </div>
-//           </div>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-//             {clinics.map((clinic) => (
-//               <div key={clinic.city} className="bg-white rounded-xl p-5 shadow-sm hover:shadow-md transition">
-//                 <div className="flex gap-2 items-center mb-2">
-//                   <span style={{ color: "#F4A118" }}>📍</span>
-//                   <p style={{ color: "#0D3B38" }} className="font-bold text-sm">{clinic.city}</p>
-//                 </div>
-//                 <p className="text-gray-500 text-xs leading-relaxed mb-4">{clinic.address}</p>
-//                 <button style={{ backgroundColor: "#0D3B38" }} className="w-full py-2 rounded-lg text-white text-xs font-semibold hover:opacity-90 transition">
-//                   Book Appointment
-//                 </button>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* FAQs */}
-//       <section className="py-16 bg-white">
-//         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <h2 className="text-4xl font-bold text-center mb-12">
-//             Frequently Asked <span style={{ color: "#F4A118" }}>Questions</span>
-//           </h2>
-//           <div className="space-y-4">
-//             {[
-//               { q: "What is Ayurvedic treatment?", a: "Ayurvedic treatment involves using herbal medicines, dietary changes, and lifestyle modifications to manage symptoms, improve quality of life, and support the body's natural healing processes." },
-//               { q: "Can Ayurvedic treatment cure cancer?", a: "Ayurvedic treatment is not a standalone cure for cancer, but it significantly supports the body's healing, reduces side effects of conventional therapy, and improves quality of life. We recommend consulting our doctors for a personalized plan." },
-//               { q: "Is Ayurvedic treatment safe for all patients?", a: "When administered by qualified practitioners, Ayurvedic treatment is generally safe with minimal side effects. Our doctors conduct thorough assessments before starting any treatment." },
-//               { q: "How long does Ayurvedic treatment take?", a: "Treatment duration varies by condition. Acute conditions may improve in weeks, while chronic diseases like cancer or kidney disease typically require 3–6 months or more for significant improvement." },
-//               { q: "Can Ayurveda be used alongside chemotherapy?", a: "Yes, Ayurvedic treatment can be used as a complementary therapy alongside chemotherapy to reduce side effects and boost immunity. Always inform both your oncologist and Ayurvedic doctor about all ongoing treatments." },
-//             ].map((faq) => (
-//               <details key={faq.q} style={{ borderLeft: "3px solid #F4A118" }} className="bg-gray-50 rounded-xl p-5 cursor-pointer">
-//                 <summary className="font-semibold text-gray-800 list-none flex justify-between items-center">
-//                   {faq.q}
-//                   <span style={{ color: "#F4A118" }}>+</span>
-//                 </summary>
-//                 <p className="text-gray-600 text-sm mt-3 leading-relaxed">{faq.a}</p>
-//               </details>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-//     </>
-//   );
-// }
-
-
-
-
 "use client";
 
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 /* ─── SUCCESS POPUP COMPONENT ──────────────────────────── */
-function SuccessPopup({ message, onClose }: { message: string; onClose: () => void }) {
+function SuccessPopup({ message, onClose }) {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-[100] bg-black bg-opacity-50">
       <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 relative shadow-2xl animate-fadeIn">
@@ -258,18 +40,34 @@ function SuccessPopup({ message, onClose }: { message: string; onClose: () => vo
 }
 
 /* ─── APPOINTMENT MODAL COMPONENT ──────────────────────── */
-function AppointmentModal({ isOpen, onClose, selectedClinic, onSubmitSuccess }: { isOpen: boolean; onClose: () => void; selectedClinic: string | null; onSubmitSuccess: () => void }) {
+function AppointmentModal({ isOpen, onClose, selectedClinic, onSubmitSuccess }) {
   const [formData, setFormData] = useState({
     fullName: '',
     mobile: '',
     email: '',
     disease: '',
-    symptoms: ''
+    symptoms: '',
+    appointmentDate: '',
+    appointmentTime: ''
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  // Generate available time slots (9 AM to 7 PM)
+  const timeSlots = [
+    "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
+    "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM",
+    "05:00 PM", "06:00 PM", "07:00 PM"
+  ];
+
+  // Get today's date in YYYY-MM-DD format for min date
+  const today = new Date().toISOString().split('T')[0];
+  // Get date 30 days from now for max date
+  const maxDate = new Date();
+  maxDate.setDate(maxDate.getDate() + 30);
+  const maxDateStr = maxDate.toISOString().split('T')[0];
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -277,31 +75,29 @@ function AppointmentModal({ isOpen, onClose, selectedClinic, onSubmitSuccess }: 
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
 
-    const { fullName, mobile, disease, symptoms } = formData;
+    const { fullName, mobile, disease, symptoms, appointmentDate, appointmentTime } = formData;
 
-    if (!fullName || !mobile || !disease || !symptoms) {
+    if (!fullName || !mobile || !disease || !symptoms || !appointmentDate || !appointmentTime) {
       setError('All fields are required');
       setIsLoading(false);
       return;
     }
 
     try {
-      // Set appointment date to tomorrow at 10 AM
-      const appointmentDate = new Date();
-      appointmentDate.setDate(appointmentDate.getDate() + 1);
-      appointmentDate.setHours(10, 0, 0, 0);
-      const schedule_at = appointmentDate.toISOString();
+      // Combine date and time to create schedule_at
+      const dateTimeString = `${appointmentDate}T${convertTo24Hour(appointmentTime)}:00`;
+      const schedule_at = new Date(dateTimeString).toISOString();
 
       const dataToSubmit = {
         schedule_at,
         slot: 20,
-        doctor: 1, // Default doctor ID
-        category: 1, // Default category ID
+        doctor: 1,
+        category: 1,
         notes: `Patient: ${fullName}, Disease: ${disease}, Clinic: ${selectedClinic}, Symptoms: ${symptoms}`,
         patient: {
           user: {
@@ -323,8 +119,6 @@ function AppointmentModal({ isOpen, onClose, selectedClinic, onSubmitSuccess }: 
         body: JSON.stringify(dataToSubmit)
       });
 
-      const result = await response.json();
-
       if (response.ok) {
         onSubmitSuccess();
         onClose();
@@ -333,9 +127,12 @@ function AppointmentModal({ isOpen, onClose, selectedClinic, onSubmitSuccess }: 
           mobile: '',
           email: '',
           disease: '',
-          symptoms: ''
+          symptoms: '',
+          appointmentDate: '',
+          appointmentTime: ''
         });
       } else {
+        const result = await response.json();
         setError(result.message || 'Failed to book appointment. Please try again.');
       }
     } catch (error) {
@@ -346,11 +143,25 @@ function AppointmentModal({ isOpen, onClose, selectedClinic, onSubmitSuccess }: 
     }
   };
 
+  // Helper function to convert 12-hour format to 24-hour format
+  const convertTo24Hour = (time12h) => {
+    const [time, modifier] = time12h.split(' ');
+    let [hours, minutes] = time.split(':');
+    
+    if (hours === '12') {
+      hours = '00';
+    }
+    if (modifier === 'PM') {
+      hours = String(parseInt(hours, 10) + 12);
+    }
+    return `${hours.padStart(2, '0')}:${minutes}`;
+  };
+
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-[90] bg-black bg-opacity-50 p-4">
-      <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 relative shadow-2xl">
+      <div className="bg-white rounded-2xl p-8 max-w-md w-full mx-4 relative shadow-2xl max-h-[90vh] overflow-y-auto">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
@@ -427,6 +238,34 @@ function AppointmentModal({ isOpen, onClose, selectedClinic, onSubmitSuccess }: 
             <option value="other">Other</option>
           </select>
           
+          {/* Date Picker */}
+          <div className="grid grid-cols-2 gap-3">
+            <input
+              required
+              type="date"
+              name="appointmentDate"
+              value={formData.appointmentDate}
+              onChange={handleChange}
+              min={today}
+              max={maxDateStr}
+              className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-[#0D3B38]"
+            />
+            
+            {/* Time Picker */}
+            <select
+              required
+              name="appointmentTime"
+              value={formData.appointmentTime}
+              onChange={handleChange}
+              className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none text-gray-600"
+            >
+              <option value="">Select Time*</option>
+              {timeSlots.map((slot) => (
+                <option key={slot} value={slot}>{slot}</option>
+              ))}
+            </select>
+          </div>
+          
           <textarea
             required
             name="symptoms"
@@ -461,7 +300,7 @@ function AppointmentModal({ isOpen, onClose, selectedClinic, onSubmitSuccess }: 
   );
 }
 
-/* ─── CLINICS DATA (Corrected) ─────────────────────────── */
+/* ─── CLINICS DATA ─────────────────────────── */
 const clinics = [
   { 
     city: "Mirzapur", 
@@ -497,7 +336,9 @@ export default function ContactPage() {
     email: '',
     disease: '',
     clinic: '',
-    symptoms: ''
+    symptoms: '',
+    appointmentDate: '',
+    appointmentTime: ''
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
@@ -505,7 +346,19 @@ export default function ContactPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedClinic, setSelectedClinic] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  // Generate available time slots
+  const timeSlots = [
+    "09:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
+    "01:00 PM", "02:00 PM", "03:00 PM", "04:00 PM",
+    "05:00 PM", "06:00 PM", "07:00 PM"
+  ];
+
+  const today = new Date().toISOString().split('T')[0];
+  const maxDate = new Date();
+  maxDate.setDate(maxDate.getDate() + 30);
+  const maxDateStr = maxDate.toISOString().split('T')[0];
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -513,31 +366,41 @@ export default function ContactPage() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const convertTo24Hour = (time12h) => {
+    const [time, modifier] = time12h.split(' ');
+    let [hours, minutes] = time.split(':');
+    
+    if (hours === '12') {
+      hours = '00';
+    }
+    if (modifier === 'PM') {
+      hours = String(parseInt(hours, 10) + 12);
+    }
+    return `${hours.padStart(2, '0')}:${minutes}`;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
 
-    const { fullName, mobile, disease, clinic, symptoms } = formData;
+    const { fullName, mobile, disease, clinic, symptoms, appointmentDate, appointmentTime } = formData;
 
-    if (!fullName || !mobile || !disease || !clinic || !symptoms) {
+    if (!fullName || !mobile || !disease || !clinic || !symptoms || !appointmentDate || !appointmentTime) {
       setError('All fields are required');
       setIsLoading(false);
       return;
     }
 
     try {
-      // Set appointment date to tomorrow at 10 AM
-      const appointmentDate = new Date();
-      appointmentDate.setDate(appointmentDate.getDate() + 1);
-      appointmentDate.setHours(10, 0, 0, 0);
-      const schedule_at = appointmentDate.toISOString();
+      const dateTimeString = `${appointmentDate}T${convertTo24Hour(appointmentTime)}:00`;
+      const schedule_at = new Date(dateTimeString).toISOString();
 
       const dataToSubmit = {
         schedule_at,
         slot: 20,
-        doctor: 1, // Default doctor ID
-        category: 1, // Default category ID
+        doctor: 1,
+        category: 1,
         notes: `Patient: ${fullName}, Disease: ${disease}, Clinic: ${clinic}, Symptoms: ${symptoms}`,
         patient: {
           user: {
@@ -559,8 +422,6 @@ export default function ContactPage() {
         body: JSON.stringify(dataToSubmit)
       });
 
-      const result = await response.json();
-
       if (response.ok) {
         setShowSuccessPopup(true);
         setFormData({
@@ -569,13 +430,16 @@ export default function ContactPage() {
           email: '',
           disease: '',
           clinic: '',
-          symptoms: ''
+          symptoms: '',
+          appointmentDate: '',
+          appointmentTime: ''
         });
         
         setTimeout(() => {
           setShowSuccessPopup(false);
         }, 5000);
       } else {
+        const result = await response.json();
         setError(result.message || 'Failed to book appointment. Please try again.');
       }
     } catch (error) {
@@ -586,26 +450,38 @@ export default function ContactPage() {
     }
   };
 
-  const openModal = (clinicName: string) => {
+  const openModal = (clinicName) => {
     setSelectedClinic(clinicName);
     setModalOpen(true);
   };
 
   return (
     <>
-      {/* Banner */}
-      <section style={{ backgroundColor: "#0D3B38" }} className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Contact <span style={{ color: "#F4A118" }}>Us</span>
-          </h1>
-          <p className="text-white/70 max-w-2xl mx-auto text-lg">
-            Get in touch with our Ayurvedic experts for a free consultation and personalized treatment plan.
-          </p>
-          <div className="flex justify-center gap-2 mt-4 text-sm text-white/50">
-            <Link href="/" className="hover:text-white transition">Home</Link>
-            <span>/</span>
-            <span style={{ color: "#F4A118" }}>Contact</span>
+      {/* Banner Section with Career Banner Image */}
+      <section className="relative h-[50vh] min-h-[350px] md:h-[60vh] overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/25/carrire_banner.jpeg"
+            alt="Career Banner - Join Our Team"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/40"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+          <div className="text-white max-w-3xl">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+              Contact <span className="text-[#F4A118]">Us</span>
+            </h1>
+            <p className="text-white/90 text-lg md:text-xl max-w-2xl">
+              Get in touch with our Ayurvedic experts for a free consultation and personalized treatment plan.
+            </p>
+            <div className="flex gap-2 mt-4 text-sm text-white/70">
+              <Link href="/" className="hover:text-[#F4A118] transition">Home</Link>
+              <span>/</span>
+              <span className="text-[#F4A118]">Contact</span>
+            </div>
           </div>
         </div>
       </section>
@@ -671,10 +547,10 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Form with API Integration */}
+            {/* Form with Calendar and Time Picker */}
             <div style={{ backgroundColor: "#EEF7F4" }} className="rounded-2xl p-8">
               <h2 className="text-2xl font-bold mb-2" style={{ color: "#0D3B38" }}>Book a Free Consultation</h2>
-              <p className="text-gray-500 text-sm mb-6">Our experts will call you back within 1 hour.</p>
+              <p className="text-gray-500 text-sm mb-6">Select your preferred date and time for consultation</p>
 
               {error && (
                 <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg mb-4 text-sm">
@@ -750,6 +626,33 @@ export default function ContactPage() {
                   <option value="online">Online Consultation</option>
                 </select>
                 
+                {/* Date and Time Picker */}
+                <div className="grid grid-cols-2 gap-3">
+                  <input
+                    required
+                    type="date"
+                    name="appointmentDate"
+                    value={formData.appointmentDate}
+                    onChange={handleChange}
+                    min={today}
+                    max={maxDateStr}
+                    className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none focus:border-green-800"
+                  />
+                  
+                  <select
+                    required
+                    name="appointmentTime"
+                    value={formData.appointmentTime}
+                    onChange={handleChange}
+                    className="w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-sm outline-none text-gray-600"
+                  >
+                    <option value="">Select Time*</option>
+                    {timeSlots.map((slot) => (
+                      <option key={slot} value={slot}>{slot}</option>
+                    ))}
+                  </select>
+                </div>
+                
                 <textarea
                   required
                   name="symptoms"
@@ -779,7 +682,7 @@ export default function ContactPage() {
                       Processing...
                     </>
                   ) : (
-                    'Enquire Now'
+                    'Book Appointment'
                   )}
                 </button>
                 
@@ -792,7 +695,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Our Clinics - Updated with correct locations */}
+      {/* Our Clinics */}
       <section style={{ backgroundColor: "#EEF7F4" }} className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">

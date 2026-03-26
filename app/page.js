@@ -1088,7 +1088,6 @@
 
 
 "use client";
-
 import React, { useState, useEffect, useRef } from 'react';
 import Link from "next/link";
 import HeroSlider from "@/components/HeroSlider";
@@ -1129,7 +1128,7 @@ const youtubeVideos = [
 ];
 
 /* ─── SUCCESS POPUP COMPONENT ──────────────────────────── */
-function SuccessPopup({ message, onClose }: { message: string; onClose: () => void }) {
+function SuccessPopup({ message, onClose }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       onClose();
@@ -1252,18 +1251,18 @@ const journeySteps = [
 ];
 
 const cancerTypes = [
-  { name: "Lung Cancer",             emoji: "🫁",  href: "/disease" },
-  { name: "Throat Cancer",           emoji: "🗣️", href: "/disease" },
-  { name: "Blood / Leukemia",        emoji: "🩸",  href: "/disease" },
-  { name: "Liver Cancer",            emoji: "🟤",  href: "/disease" },
-  { name: "Breast Cancer",           emoji: "🎗️",  href: "/disease" },
-  { name: "Kidney Cancer",           emoji: "🫘",  href: "/disease" },
-  { name: "Cervical Cancer",         emoji: "🌸",  href: "/disease" },
-  { name: "Brain Tumor",             emoji: "🧠",  href: "/disease" },
-  { name: "Prostate Cancer",         emoji: "🔵",  href: "/disease" },
-  { name: "Oral Cancer",             emoji: "👄",  href: "/disease" },
-  { name: "Colon Cancer",            emoji: "🌀",  href: "/disease" },
-  { name: "Stomach Cancer",          emoji: "🫃",  href: "/disease" },
+  { name: "Lung Cancer",             emoji: "🫁",  href: "/cancer/lung-cancer" },
+  { name: "Throat Cancer",           emoji: "🗣️", href: "/cancer/throat-cancer" },
+  { name: "Blood / Leukemia",        emoji: "🩸",  href: "/cancer/leukemia" },
+  { name: "Liver Cancer",            emoji: "🟤",  href: "/cancer/liver-cancer" },
+  { name: "Breast Cancer",           emoji: "🎗️",  href: "/cancer/breast-cancer" },
+  { name: "Kidney Cancer",           emoji: "🫘",  href: "/cancer/kidney-cancer" },
+  { name: "Cervical Cancer",         emoji: "🌸",  href: "/cancer/cervical-cancer" },
+  { name: "Brain Tumor",             emoji: "🧠",  href: "/cancer/brain-tumor" },
+  { name: "Prostate Cancer",         emoji: "🔵",  href: "/cancer/prostate-cancer" },
+  { name: "Oral Cancer",             emoji: "👄",  href: "/cancer/oral-cancer" },
+  { name: "Colon Cancer",            emoji: "🌀",  href: "/cancer/colon-cancer" },
+  { name: "Stomach Cancer",          emoji: "🫃",  href: "/cancer/stomach-cancer" },
 ];
 
 const reviews = [
@@ -1311,7 +1310,56 @@ const consultationBonusSteps = [
   { num: "6", icon: "🩺", title: "Begin Cancer Treatment",          desc: "Start your personalised healing journey." },
 ];
 
-/* ─── PAGE ─────────────────────────────────────────────── */
+// Premium Your Journey Links with enhanced design
+const yourJourneyLinks = [
+  { id: 1, title: "Integrative Cancer Care", href: "/integrative-care", icon: "🌿", description: "Holistic approach combining Ayurveda with modern care", color: "#0D3B38", gradient: "from-[#0D3B38]/10 to-[#0D3B38]/5" },
+  { id: 2, title: "Cancer Types", href: "/disease", icon: "🎗️", description: "Specialized treatment for 20+ cancer types", color: "#F4A118", gradient: "from-[#F4A118]/10 to-[#F4A118]/5" },
+  { id: 3, title: "Treatments", href: "/services", icon: "💊", description: "Personalized Ayurvedic protocols", color: "#1B6B5A", gradient: "from-[#1B6B5A]/10 to-[#1B6B5A]/5" },
+  { id: 4, title: "Case Studies", href: "/case-studies", icon: "📊", description: "Real patient success stories", color: "#c0392b", gradient: "from-[#c0392b]/10 to-[#c0392b]/5" },
+  { id: 5, title: "Clinic Network", href: "/clinics", icon: "📍", description: "20+ centers across India", color: "#2c3e50", gradient: "from-[#2c3e50]/10 to-[#2c3e50]/5" },
+];
+
+// Support Programs Data with proper links to your pages
+const supportPrograms = [
+  { 
+    title: "Chemo Support Program", 
+    desc: "Reduce side effects, protect healthy cells", 
+    href: "/programs/chemo-support",
+    imgSrc: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/22/cancer-support.jpeg"
+  },
+  { 
+    title: "Immunity Restoration", 
+    desc: "Strengthen your immune system", 
+    href: "/programs/immunity-restoration",
+    imgSrc: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/22/16779563.png"
+  },
+  { 
+    title: "Post Surgery Recovery", 
+    desc: "Faster healing, prevent recurrence", 
+    href: "/programs/post-surgery-recovery",
+    imgSrc: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/22/45.jpeg"
+  },
+  { 
+    title: "Advanced Stage Support", 
+    desc: "Palliative care, quality of life", 
+    href: "/programs/advanced-stage-support",
+    imgSrc: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/22/Untitled.jpeg"
+  },
+  { 
+    title: "Radiation Support", 
+    desc: "Protect healthy tissues, manage side effects", 
+    href: "/programs/radiation-support",
+    imgSrc: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/22/radiation-icon-symbol.jpeg"
+  },
+  { 
+    title: "Maintenance Program", 
+    desc: "Prevent recurrence, long-term wellness", 
+    href: "/programs/maintenance-program",
+    imgSrc: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/22/washing-machine-cogwheel.jpeg"
+  }
+];
+
+/* ─── MAIN HOMEPAGE COMPONENT ─────────────────────────── */
 export default function HomePage() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -1325,7 +1373,7 @@ export default function HomePage() {
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [error, setError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -1333,7 +1381,7 @@ export default function HomePage() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     setError('');
@@ -1347,16 +1395,15 @@ export default function HomePage() {
     }
 
     try {
-      // Format date to ISO string
       const appointmentDate = new Date(date);
-      appointmentDate.setHours(10, 0, 0, 0); // Set to 10:00 AM
+      appointmentDate.setHours(10, 0, 0, 0);
       const schedule_at = appointmentDate.toISOString();
 
       const dataToSubmit = {
         schedule_at,
         slot: 20,
-        doctor: 1, // Default doctor ID
-        category: 1, // Default category ID
+        doctor: 1,
+        category: 1,
         notes: `Patient: ${firstName} ${lastName}, Cancer Type: ${cancerType}, State: ${state}`,
         patient: {
           user: {
@@ -1381,10 +1428,7 @@ export default function HomePage() {
       const result = await response.json();
 
       if (response.ok) {
-        // Show success popup
         setShowSuccessPopup(true);
-        
-        // Reset form
         setFormData({
           firstName: '',
           lastName: '',
@@ -1393,8 +1437,6 @@ export default function HomePage() {
           cancerType: '',
           state: ''
         });
-        
-        // Auto hide popup after 5 seconds
         setTimeout(() => {
           setShowSuccessPopup(false);
         }, 5000);
@@ -1409,28 +1451,53 @@ export default function HomePage() {
     }
   };
 
-  const openYouTubeVideo = (videoId: string) => {
+  const openYouTubeVideo = (videoId) => {
     window.open(`https://youtu.be/${videoId}`, '_blank');
   };
 
+  // Main homepage render
   return (
     <>
-      {/* ══════════════════════════════════════════════════
-          HERO SLIDER
-      ══════════════════════════════════════════════════ */}
+      {/* HERO SLIDER */}
       <HeroSlider />
 
-      {/* ══════════════════════════════════════════════════
-          QUICK ACTION BAR
-      ══════════════════════════════════════════════════ */}
+     {/* QUICK ACTION BAR */}
       <section className="bg-white" style={{ borderBottom: "1px solid #e5f0ec" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-gray-100">
             {[
-              { icon: "📅", title: "Book Appointment",   sub: "Free consultation",          href: "/contact",  bg: "#0D3B38" },
-              { icon: "📍", title: "Locate Clinic",      sub: "20+ centres India",         href: "/about",    bg: "#1B6B5A" },
-              { icon: "💉", title: "Immunotherapy Info", sub: "Ayurvedic protocols",   href: "/services", bg: "#F4A118" },
-              { icon: "🎗️", title: "Cancer Types",       sub: "All 20+ types",    href: "/disease",  bg: "#c0392b" },
+              { 
+                icon: "📅", 
+                title: "Book Appointment",   
+                sub: "Book consultation",          
+                href: "/contact",  
+                bg: "#0D3B38",
+                imgSrc: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/21/Screenshot_from_2026-03-21_21-59-51.png"
+              },
+              { 
+                icon: "📍", 
+                title: "Locate Clinic",      
+                sub: "20+ centres India",         
+                href: "/clinics",    
+                bg: "#1B6B5A",
+                imgSrc: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/21/Screenshot_from_2026-03-21_22-06-48.png"
+              },
+              { 
+                icon: "💊", 
+                title: "Support Programs",   
+                sub: "Chemo, Immunity & more",   
+                href: "support-program", 
+                bg: "#F4A118",
+                imgSrc: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/21/Screenshot_from_2026-03-21_22-03-06.png"
+              },
+              { 
+                icon: "🥗", 
+                title: "Anti-Cancer Diet",   
+                sub: "Food as medicine",    
+                href: "/anti-cancer-diet",  
+                bg: "#c0392b",
+                imgSrc: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/21/Screenshot_from_2026-03-21_22-05-15.png"
+              },
             ].map((item) => (
               <Link
                 key={item.title}
@@ -1438,10 +1505,14 @@ export default function HomePage() {
                 className="group flex flex-col items-center gap-3 py-7 px-4 text-center hover:bg-gray-50 transition"
               >
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-sm group-hover:scale-110 transition-transform"
+                  className="w-14 h-14 rounded-full flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform overflow-hidden"
                   style={{ backgroundColor: item.bg }}
                 >
-                  <span>{item.icon}</span>
+                  <img 
+                    src={item.imgSrc} 
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <p className="font-bold text-sm" style={{ color: "#0D3B38", ...heading }}>{item.title}</p>
@@ -1453,20 +1524,129 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          APPOINTMENT BOOKING FORM – 2 COLUMN WITH API
-      ══════════════════════════════════════════════════ */}
+      {/* TRUST & AUTHORITY SECTION */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-bold px-4 py-1.5 rounded-full mb-3 tracking-wide" style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}>
+              Trusted Integrative Cancer Support Initiative
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "#0D3B38", ...heading }}>
+              Excellence in Ayurvedic Cancer Care
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto" style={body}>
+              Backed by years of clinical experience and research
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { number: "24+", label: "Years Experience", desc: "Clinical Excellence" },
+              { number: "10,000+", label: "Patients Treated", desc: "Lives Transformed" },
+              { number: "15+", label: "Research Team", desc: "Dedicated Experts" },
+              { number: "20+", label: "Clinic Network", desc: "Pan India Presence" }
+            ].map((stat, i) => (
+              <div key={i} className="bg-gray-50 rounded-2xl p-6" style={{ border: "1px solid #e5f0ec" }}>
+                <p className="text-3xl md:text-4xl font-bold mb-2" style={{ color: "#F4A118" }}>{stat.number}</p>
+                <p className="font-bold text-gray-800 mb-1">{stat.label}</p>
+                <p className="text-sm text-gray-500">{stat.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CANCER SUPPORT PROGRAMS - CLICKABLE CARDS WITH LINKS */}
+      <section id="programs" className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-bold px-4 py-1.5 rounded-full mb-3 tracking-wide" style={{ backgroundColor: "#0D3B38", color: "white" }}>
+              Support Programs
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "#0D3B38", ...heading }}>
+              Cancer Support Programs
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto" style={body}>
+              Specialized programs for every stage of your cancer journey
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {supportPrograms.map((program, i) => (
+              <Link
+                key={i}
+                href={program.href}
+                className="group w-full text-left"
+              >
+                <div className="bg-white rounded-xl p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer" style={{ border: "1px solid #e5f0ec" }}>
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4 overflow-hidden bg-gray-50 mx-auto">
+                    <img 
+                      src={program.imgSrc} 
+                      alt={program.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2" style={{ color: "#0D3B38", ...heading }}>{program.title}</h3>
+                  <p className="text-gray-500 text-sm mb-3">{program.desc}</p>
+                  <span className="text-sm font-semibold group-hover:underline" style={{ color: "#F4A118" }}>Learn More →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HOW OUR PROGRAM WORKS */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "#0D3B38", ...heading }}>
+              How Our Program Works
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto" style={body}>
+              Simple 6-step journey to better health
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+            {[
+              { step: "1", title: "Submit Reports", icon: "📄" },
+              { step: "2", title: "Doctor Review", icon: "👨‍⚕️" },
+              { step: "3", title: "Personalized Plan", icon: "📋" },
+              { step: "4", title: "Start Program", icon: "🌿" },
+              { step: "5", title: "Regular Monitoring", icon: "📊" },
+              { step: "6", title: "Long-term Support", icon: "🤝" }
+            ].map((step, i) => (
+              <div key={i} className="relative">
+                <div className="bg-gray-50 rounded-xl p-4 hover:shadow-md transition">
+                  <div className="text-3xl mb-2">{step.icon}</div>
+                  <div className="w-8 h-8 rounded-full bg-[#F4A118] text-white flex items-center justify-center mx-auto mb-2 font-bold text-sm">
+                    {step.step}
+                  </div>
+                  <p className="text-sm font-semibold">{step.title}</p>
+                </div>
+                {i < 5 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-3 text-xl text-[#F4A118]">→</div>
+                )}
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-10">
+            <Link href="/how-it-works" className="text-[#F4A118] font-semibold hover:underline">
+              View Complete Process Details →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* APPOINTMENT BOOKING FORM */}
       <section style={{ backgroundColor: "#EEF7F4" }} className="py-10 sm:py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
-
-            {/* Left – Info */}
             <div className="lg:col-span-3">
-              <span
-                className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-4 tracking-wide"
-                style={{ backgroundColor: "#0D3B38", color: "white" }}
-              >
-                Free Consultation
+              <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-4 tracking-wide" style={{ backgroundColor: "#0D3B38", color: "white" }}>
+                Book Consultation
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-4" style={{ color: "#0D3B38", ...heading }}>
                 Book Your Appointment Today!
@@ -1474,8 +1654,6 @@ export default function HomePage() {
               <p className="text-gray-500 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8 max-w-lg" style={body}>
                 Get expert Ayurvedic guidance within 1 hour of booking your slot.
               </p>
-
-              {/* Feature list */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {[
                   { icon: "🌿", text: "100% Natural Treatment" },
@@ -1491,36 +1669,20 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-
-              {/* Phone CTA */}
-              <div
-                className="mt-6 sm:mt-8 flex items-center gap-3 sm:gap-4 rounded-2xl p-4 sm:p-5"
-                style={{ backgroundColor: "#0D3B38" }}
-              >
-                <div
-                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center text-xl sm:text-2xl flex-shrink-0"
-                  style={{ backgroundColor: "#F4A118" }}
-                >
+              <div className="mt-6 sm:mt-8 flex items-center gap-3 sm:gap-4 rounded-2xl p-4 sm:p-5" style={{ backgroundColor: "#0D3B38" }}>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center text-xl sm:text-2xl flex-shrink-0" style={{ backgroundColor: "#F4A118" }}>
                   📞
                 </div>
                 <div>
                   <p className="text-white/70 text-[10px] sm:text-xs mb-0.5">Call Us Now — Mon–Sat, 10 AM–7 PM</p>
-                  <a
-                    href="tel:+918081222333"
-                    className="text-lg sm:text-xl md:text-2xl font-extrabold hover:underline"
-                    style={{ color: "#F4A118" }}
-                  >
+                  <a href="tel:+918081222333" className="text-lg sm:text-xl md:text-2xl font-extrabold hover:underline" style={{ color: "#F4A118" }}>
                     +91 8081222333
                   </a>
                 </div>
               </div>
             </div>
 
-            {/* Right – Form with API Integration */}
-            <div
-              className="lg:col-span-2 rounded-2xl shadow-lg p-5 sm:p-6 md:p-7"
-              style={{ backgroundColor: "white", border: "1px solid #c8e8e0" }}
-            >
+            <div className="lg:col-span-2 rounded-2xl shadow-lg p-5 sm:p-6 md:p-7" style={{ backgroundColor: "white", border: "1px solid #c8e8e0" }}>
               <h3 className="text-base sm:text-lg font-extrabold mb-1" style={{ color: "#0D3B38", ...heading }}>
                 Book An Appointment
               </h3>
@@ -1534,55 +1696,12 @@ export default function HomePage() {
               
               <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3">
                 <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    placeholder="First Name"
-                    className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none focus:border-green-700"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    placeholder="Last Name"
-                    className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none focus:border-green-700"
-                    required
-                  />
+                  <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} placeholder="First Name" className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none focus:border-green-700" required />
+                  <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Last Name" className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none focus:border-green-700" required />
                 </div>
-                
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Phone Number"
-                  className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none focus:border-green-700"
-                  required
-                  pattern="[0-9]{10}"
-                  maxLength={10}
-                />
-                
-                <input
-                  type="date"
-                  name="date"
-                  value={formData.date}
-                  onChange={handleChange}
-                  min={new Date().toISOString().split('T')[0]}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none text-gray-500"
-                  required
-                />
-                
-                <select 
-                  name="cancerType"
-                  value={formData.cancerType}
-                  onChange={handleChange}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none text-gray-500"
-                  required
-                >
+                <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone Number" className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none focus:border-green-700" required pattern="[0-9]{10}" maxLength="10" />
+                <input type="date" name="date" value={formData.date} onChange={handleChange} min={new Date().toISOString().split('T')[0]} className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none text-gray-500" required />
+                <select name="cancerType" value={formData.cancerType} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none text-gray-500" required>
                   <option value="">Type of Cancer</option>
                   <option value="breast">Breast Cancer</option>
                   <option value="lung">Lung Cancer</option>
@@ -1598,28 +1717,13 @@ export default function HomePage() {
                   <option value="stomach">Stomach Cancer</option>
                   <option value="other">Other</option>
                 </select>
-                
-                <select 
-                  name="state"
-                  value={formData.state}
-                  onChange={handleChange}
-                  className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none text-gray-500"
-                  required
-                >
+                <select name="state" value={formData.state} onChange={handleChange} className="w-full bg-gray-50 border border-gray-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm outline-none text-gray-500" required>
                   <option value="">Select State</option>
-                  {["Uttar Pradesh","Delhi","Maharashtra","Gujarat","Rajasthan","Madhya Pradesh",
-                    "Bihar","West Bengal","Karnataka","Tamil Nadu","Kerala","Andhra Pradesh",
-                    "Telangana","Punjab","Haryana","Jharkhand","Odisha","Assam","Other"].map(s => (
+                  {["Uttar Pradesh","Delhi","Maharashtra","Gujarat","Rajasthan","Madhya Pradesh","Bihar","West Bengal","Karnataka","Tamil Nadu","Kerala","Andhra Pradesh","Telangana","Punjab","Haryana","Jharkhand","Odisha","Assam","Other"].map(s => (
                     <option key={s} value={s.toLowerCase().replace(' ', '_')}>{s}</option>
                   ))}
                 </select>
-                
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
-                  className="w-full py-2 sm:py-3 rounded-lg sm:rounded-xl text-white font-bold text-xs sm:text-base hover:opacity-90 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
+                <button type="submit" disabled={isLoading} style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }} className="w-full py-2 sm:py-3 rounded-lg sm:rounded-xl text-white font-bold text-xs sm:text-base hover:opacity-90 transition shadow-sm disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
                   {isLoading ? (
                     <>
                       <svg className="animate-spin h-4 w-4 sm:h-5 sm:w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -1638,16 +1742,75 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          WHY BK CANCER HEALER THERAPY - WITH IMAGES - MOBILE SCROLL
-      ══════════════════════════════════════════════════ */}
+      {/* ANTI-CANCER DIET SECTION */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="inline-block text-xs font-bold px-4 py-1.5 rounded-full mb-3 tracking-wide" style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}>
+                Food as Medicine
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "#0D3B38", ...heading }}>
+                Anti-Cancer Diet Guide
+              </h2>
+              <p className="text-gray-600 mb-6 leading-relaxed" style={body}>
+                Get personalized diet plans to boost immunity, reduce treatment side effects, and support your body's natural healing process.
+              </p>
+              <ul className="space-y-2 mb-6">
+                {[
+                  "Anti-inflammatory foods and spices",
+                  "Immunity-boosting recipes",
+                  "Foods to avoid during treatment",
+                  "Easy-to-digest meal plans"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-2">
+                    <span className="text-[#F4A118]">✓</span>
+                    <span className="text-gray-600">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              {/* Download button with image click handler */}
+              <div
+                onClick={() => window.open("https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/21/Gemini_Generated_Image_qr3smaqr3smaqr3s1.png", "_blank")}
+                className="inline-block cursor-pointer"
+              >
+                <Link
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open("https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/21/Gemini_Generated_Image_qr3smaqr3smaqr3s1.png", "_blank");
+                  }}
+                  className="inline-block px-6 py-3 rounded-lg text-white font-semibold transition hover:opacity-90"
+                  style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
+                >
+                  Download Free Diet Guide →
+                </Link>
+              </div>
+            </div>
+            {/* Right side image container */}
+            <div className="bg-gradient-to-br from-[#EEF7F4] to-white rounded-2xl p-8 text-center" style={{ border: "1px solid #e5f0ec" }}>
+              <img
+                src="https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/21/Fazlani-Authentic-Ayurveda.jpeg"
+                alt="Anti-Cancer Diet Guide"
+                className="w-full h-auto rounded-xl mb-4"
+              />
+              <p className="text-lg italic mb-3" style={body}>"Food is the first medicine"</p>
+              <p className="text-gray-500 text-sm">- Ayurveda</p>
+              <div className="mt-4 flex justify-center gap-2">
+                <span className="px-3 py-1 bg-[#F4A118] text-white rounded-full text-xs">Turmeric</span>
+                <span className="px-3 py-1 bg-[#F4A118] text-white rounded-full text-xs">Ginger</span>
+                <span className="px-3 py-1 bg-[#F4A118] text-white rounded-full text-xs">Millets</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY BK CANCER HEALER THERAPY */}
       <section className="py-10 sm:py-12 md:py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <span
-              className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide"
-              style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}
-            >
+            <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide" style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}>
               Our Advantage
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2 sm:mb-3" style={{ color: "#0D3B38", ...heading }}>
@@ -1658,33 +1821,15 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Mobile Horizontal Scroll */}
           <div className="lg:hidden w-full overflow-x-auto pb-6 -mb-2 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             <div className="flex gap-4 px-2 min-w-max">
               {whyCards.map((card) => (
-                <div
-                  key={card.title}
-                  className="w-[280px] sm:w-[320px] flex-shrink-0 bg-white rounded-2xl overflow-hidden hover:shadow-xl transition group"
-                  style={{ border: "1px solid #e5f0ec" }}
-                >
-                  {/* Image Container */}
+                <div key={card.title} className="w-[280px] sm:w-[320px] flex-shrink-0 bg-white rounded-2xl overflow-hidden hover:shadow-xl transition group" style={{ border: "1px solid #e5f0ec" }}>
                   <div className="relative h-36 sm:h-40 w-full overflow-hidden">
-                    <Image
-                      src={card.image}
-                      alt={card.imageAlt}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      unoptimized
-                    />
-                    {/* Icon Overlay */}
-                    <div className="absolute top-2 left-2 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-base sm:text-lg shadow-lg">
-                      {card.icon}
-                    </div>
-                    {/* Gradient Overlay */}
+                    <Image src={card.image} alt={card.imageAlt} fill className="object-cover group-hover:scale-110 transition-transform duration-500" unoptimized />
+                    <div className="absolute top-2 left-2 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-base sm:text-lg shadow-lg">{card.icon}</div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                   </div>
-                  
-                  {/* Content */}
                   <div className="p-3 sm:p-4">
                     <h3 className="font-extrabold text-gray-800 text-sm sm:text-base mb-1 line-clamp-2" style={heading}>{card.title}</h3>
                     <p className="text-gray-500 text-xs leading-relaxed line-clamp-3" style={body}>{card.desc}</p>
@@ -1693,32 +1838,17 @@ export default function HomePage() {
               ))}
             </div>
             <div className="flex justify-center mt-3 gap-1">
-              <div className="w-12 h-1 bg-gray-200 rounded-full">
-                <div className="w-4 h-1 bg-[#F4A118] rounded-full animate-pulse"></div>
-              </div>
+              <div className="w-12 h-1 bg-gray-200 rounded-full"><div className="w-4 h-1 bg-[#F4A118] rounded-full animate-pulse"></div></div>
               <span className="text-[10px] text-gray-400">← Swipe →</span>
             </div>
           </div>
 
-          {/* Desktop Grid */}
           <div className="hidden lg:grid lg:grid-cols-3 gap-6">
             {whyCards.map((card) => (
-              <div
-                key={card.title}
-                className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition group"
-                style={{ border: "1px solid #e5f0ec" }}
-              >
+              <div key={card.title} className="bg-white rounded-2xl overflow-hidden hover:shadow-xl transition group" style={{ border: "1px solid #e5f0ec" }}>
                 <div className="relative h-48 w-full overflow-hidden">
-                  <Image
-                    src={card.image}
-                    alt={card.imageAlt}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
-                    unoptimized
-                  />
-                  <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-xl shadow-lg">
-                    {card.icon}
-                  </div>
+                  <Image src={card.image} alt={card.imageAlt} fill className="object-cover group-hover:scale-110 transition-transform duration-500" unoptimized />
+                  <div className="absolute top-3 left-3 w-10 h-10 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-xl shadow-lg">{card.icon}</div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                 </div>
                 <div className="p-5">
@@ -1731,60 +1861,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          STATS COUNTER
-      ══════════════════════════════════════════════════ */}
+      {/* STATS COUNTER */}
       <StatsCounter />
 
-      {/* ══════════════════════════════════════════════════
-          CUTTING-EDGE THERAPY SECTION – 2 COLUMN
-      ══════════════════════════════════════════════════ */}
+      {/* CUTTING-EDGE THERAPY SECTION */}
       <section className="py-10 sm:py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-start">
-
-            {/* Left – Text */}
             <div>
-              <p className="text-[10px] sm:text-xs font-extrabold tracking-widest uppercase mb-2" style={{ color: "#F4A118" }}>
-                Cutting-Edge
-              </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-1 leading-tight" style={{ color: "#0D3B38", ...heading }}>
-                BK Cancer Healer Therapy
-              </h2>
-              <p className="text-gray-400 text-xs sm:text-sm mb-5 sm:mb-7" style={body}>
-                A Holistic Ayurvedic Approach | Aiming for Complete Well-being
-              </p>
-
+              <p className="text-[10px] sm:text-xs font-extrabold tracking-widest uppercase mb-2" style={{ color: "#F4A118" }}>Cutting-Edge</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-1 leading-tight" style={{ color: "#0D3B38", ...heading }}>BK Cancer Healer Therapy</h2>
+              <p className="text-gray-400 text-xs sm:text-sm mb-5 sm:mb-7" style={body}>A Holistic Ayurvedic Approach | Aiming for Complete Well-being</p>
               {[
-                {
-                  heading: "How Does It Work?",
-                  points: [
-                    "Strengthens immune system to fight abnormal cancer cells",
-                    "Balances Tridosha to restore body's natural defence",
-                    "Detoxifies toxins using targeted Panchakarma procedures",
-                  ],
-                },
-                {
-                  heading: "What It Does:",
-                  points: [
-                    "Terminates or halts cancer cell growth",
-                    "Prevents metastasis to other organs",
-                    "Enhances immunity & improves quality of life",
-                  ],
-                },
-                {
-                  heading: "Key Benefits:",
-                  points: [
-                    "Zero side effects — no hair loss, no nausea",
-                    "Normal healthy cells completely unaffected",
-                    "Faster recovery & long-term wellness",
-                  ],
-                },
+                { heading: "How Does It Work?", points: ["Strengthens immune system to fight abnormal cancer cells", "Balances Tridosha to restore body's natural defence", "Detoxifies toxins using targeted Panchakarma procedures"] },
+                { heading: "What It Does:", points: ["Terminates or halts cancer cell growth", "Prevents metastasis to other organs", "Enhances immunity & improves quality of life"] },
+                { heading: "Key Benefits:", points: ["Zero side effects — no hair loss, no nausea", "Normal healthy cells completely unaffected", "Faster recovery & long-term wellness"] },
               ].map((section) => (
                 <div key={section.heading} className="mb-4 sm:mb-6">
-                  <h3 className="font-bold text-xs sm:text-sm mb-2 sm:mb-3" style={{ color: "#F4A118", ...heading }}>
-                    {section.heading}
-                  </h3>
+                  <h3 className="font-bold text-xs sm:text-sm mb-2 sm:mb-3" style={{ color: "#F4A118", ...heading }}>{section.heading}</h3>
                   <ul className="space-y-1 sm:space-y-2">
                     {section.points.map((p) => (
                       <li key={p} className="flex gap-1 sm:gap-2 items-start text-xs sm:text-sm text-gray-500" style={body}>
@@ -1796,243 +1890,112 @@ export default function HomePage() {
                 </div>
               ))}
             </div>
-
-            {/* Right – Doctor image and info */}
             <div>
-              {/* Doctor image */}
-              <div
-                className="rounded-2xl sm:rounded-3xl flex items-center justify-center mb-4 sm:mb-5 shadow-lg overflow-hidden relative"
-                style={{
-                  height: 300,
-                  border: "3px solid #EEF7F4",
-                }}
-              >
-                <Image
-                  src="https://main.bkarogyam.com/media/founder_images/directorbk.jpg"
-                  alt="Dr. BK Chaurasia - Founder & Chief Vaidya"
-                  fill
-                  className="object-cover object-center"
-                  priority
-                  unoptimized
-                />
-                {/* Name overlay at bottom */}
+              <div className="rounded-2xl sm:rounded-3xl flex items-center justify-center mb-4 sm:mb-5 shadow-lg overflow-hidden relative" style={{ height: 300, border: "3px solid #EEF7F4" }}>
+                <Image src="https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/12/Gemini_Generated_Image_h8w38ah8w38ah8w3_2.png" alt="Dr. BK Chaurasia - Founder & Chief Vaidya" fill className="object-cover object-center" priority unoptimized />
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3 sm:p-5 pt-8 sm:pt-12">
                   <p className="font-bold text-base sm:text-xl text-white" style={heading}>Dr. BK Chaurasia</p>
                   <p className="text-white/80 text-xs sm:text-sm mt-0.5 sm:mt-1">Founder & Chief Vaidya</p>
                   <p className="text-white/60 text-[10px] sm:text-xs mt-0.5 sm:mt-1">24+ Years in Ayurvedic Oncology</p>
                 </div>
               </div>
-
-              {/* Panchakarma info card */}
-              <div
-                className="rounded-xl sm:rounded-2xl p-3 sm:p-5"
-                style={{ backgroundColor: "#EEF7F4", border: "1px solid #c8e8e0" }}
-              >
-                <p className="font-extrabold text-xs sm:text-sm mb-2 sm:mb-3" style={{ color: "#0D3B38", ...heading }}>
-                  🌿 Panchakarma Therapies:
-                </p>
+              <div className="rounded-xl sm:rounded-2xl p-3 sm:p-5" style={{ backgroundColor: "#EEF7F4", border: "1px solid #c8e8e0" }}>
+                <p className="font-extrabold text-xs sm:text-sm mb-2 sm:mb-3" style={{ color: "#0D3B38", ...heading }}>🌿 Panchakarma Therapies:</p>
                 <div className="flex flex-wrap gap-1 sm:gap-2">
                   {["Abhyanga", "Shirodhara", "Nasya", "Basti", "Virechana"].map((t) => (
-                    <span
-                      key={t}
-                      className="text-[10px] sm:text-xs font-semibold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full"
-                      style={{ backgroundColor: "#0D3B38", color: "white" }}
-                    >
-                      {t}
-                    </span>
+                    <span key={t} className="text-[10px] sm:text-xs font-semibold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full" style={{ backgroundColor: "#0D3B38", color: "white" }}>{t}</span>
                   ))}
                 </div>
-                <p className="text-gray-500 text-[10px] sm:text-xs mt-2 sm:mt-3 leading-relaxed" style={body}>
-                  Customised based on patient's constitution, cancer type & stage.
-                </p>
+                <p className="text-gray-500 text-[10px] sm:text-xs mt-2 sm:mt-3 leading-relaxed" style={body}>Customised based on patient's constitution, cancer type & stage.</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          YOUR JOURNEY WITH US – 4 STEPS - MOBILE SCROLL
-      ══════════════════════════════════════════════════ */}
+      {/* YOUR JOURNEY WITH US – 4 STEPS */}
       <section style={{ backgroundColor: "#F8F9FA" }} className="py-10 sm:py-12 md:py-16 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <span
-              className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide"
-              style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}
-            >
-              Simple Process
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2 sm:mb-3" style={{ color: "#0D3B38", ...heading }}>
-              Your Journey With Us
-            </h2>
-            <p className="text-gray-500 text-xs sm:text-sm max-w-xl mx-auto px-4" style={body}>
-              Simple steps to begin your Ayurvedic Cancer Healing journey
-            </p>
+            <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide" style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}>Simple Process</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2 sm:mb-3" style={{ color: "#0D3B38", ...heading }}>Your Journey With Us</h2>
+            <p className="text-gray-500 text-xs sm:text-sm max-w-xl mx-auto px-4" style={body}>Simple steps to begin your Ayurvedic Cancer Healing journey</p>
           </div>
-
-          {/* Mobile Horizontal Scroll */}
           <div className="lg:hidden w-full overflow-x-auto pb-6 -mb-2 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             <div className="flex gap-4 px-2 min-w-max">
-              {journeySteps.map((step, i) => (
+              {journeySteps.map((step) => (
                 <div key={step.num} className="w-[260px] sm:w-[280px] flex-shrink-0 relative">
-                  <div
-                    className="bg-white rounded-2xl p-5 sm:p-6 text-center shadow-sm h-full relative overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all"
-                    style={{ border: "1px solid #e5f0ec" }}
-                  >
-                    {/* Watermark number */}
-                    <p
-                      className="absolute top-2 left-3 text-5xl sm:text-6xl font-extrabold leading-none select-none"
-                      style={{ color: "#0D3B38", opacity: 0.05 }}
-                    >
-                      {step.num}
-                    </p>
-                    {/* Icon */}
-                    <div
-                      className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-xl sm:text-2xl mx-auto mb-3 sm:mb-4 relative z-10"
-                      style={{ backgroundColor: "#F4A118" }}
-                    >
-                      {step.icon}
-                    </div>
-                    <h3 className="font-extrabold text-gray-800 text-sm sm:text-base mb-1 sm:mb-2 relative z-10" style={heading}>
-                      {step.title}
-                    </h3>
-                    <p className="text-gray-400 text-xs leading-relaxed relative z-10" style={body}>
-                      {step.desc}
-                    </p>
+                  <div className="bg-white rounded-2xl p-5 sm:p-6 text-center shadow-sm h-full relative overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all" style={{ border: "1px solid #e5f0ec" }}>
+                    <p className="absolute top-2 left-3 text-5xl sm:text-6xl font-extrabold leading-none select-none" style={{ color: "#0D3B38", opacity: 0.05 }}>{step.num}</p>
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-xl sm:text-2xl mx-auto mb-3 sm:mb-4 relative z-10" style={{ backgroundColor: "#F4A118" }}>{step.icon}</div>
+                    <h3 className="font-extrabold text-gray-800 text-sm sm:text-base mb-1 sm:mb-2 relative z-10" style={heading}>{step.title}</h3>
+                    <p className="text-gray-400 text-xs leading-relaxed relative z-10" style={body}>{step.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
             <div className="flex justify-center mt-3 gap-1">
-              <div className="w-12 h-1 bg-gray-200 rounded-full">
-                <div className="w-4 h-1 bg-[#F4A118] rounded-full animate-pulse"></div>
-              </div>
+              <div className="w-12 h-1 bg-gray-200 rounded-full"><div className="w-4 h-1 bg-[#F4A118] rounded-full animate-pulse"></div></div>
               <span className="text-[10px] text-gray-400">← Swipe →</span>
             </div>
           </div>
-
-          {/* Desktop Grid */}
           <div className="hidden lg:grid lg:grid-cols-4 gap-6 mb-10">
             {journeySteps.map((step, i) => (
               <div key={step.num} className="relative">
-                <div
-                  className="bg-white rounded-2xl p-7 text-center shadow-sm h-full relative overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all"
-                  style={{ border: "1px solid #e5f0ec" }}
-                >
-                  <p
-                    className="absolute top-3 left-4 text-7xl font-extrabold leading-none select-none"
-                    style={{ color: "#0D3B38", opacity: 0.05 }}
-                  >
-                    {step.num}
-                  </p>
-                  <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4 relative z-10"
-                    style={{ backgroundColor: "#F4A118" }}
-                  >
-                    {step.icon}
-                  </div>
-                  <h3 className="font-extrabold text-gray-800 text-base mb-2 relative z-10" style={heading}>
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed relative z-10" style={body}>
-                    {step.desc}
-                  </p>
+                <div className="bg-white rounded-2xl p-7 text-center shadow-sm h-full relative overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all" style={{ border: "1px solid #e5f0ec" }}>
+                  <p className="absolute top-3 left-4 text-7xl font-extrabold leading-none select-none" style={{ color: "#0D3B38", opacity: 0.05 }}>{step.num}</p>
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4 relative z-10" style={{ backgroundColor: "#F4A118" }}>{step.icon}</div>
+                  <h3 className="font-extrabold text-gray-800 text-base mb-2 relative z-10" style={heading}>{step.title}</h3>
+                  <p className="text-gray-400 text-sm leading-relaxed relative z-10" style={body}>{step.desc}</p>
                 </div>
                 {i < journeySteps.length - 1 && (
                   <div className="hidden lg:flex absolute top-1/2 -right-4 z-20 -translate-y-1/2 items-center gap-[3px]">
-                    {[0,1,2].map((d) => (
-                      <div key={d} style={{ width: 5, height: 2, backgroundColor: "#F4A118" }} className="rounded-full" />
-                    ))}
+                    {[0,1,2].map((d) => (<div key={d} style={{ width: 5, height: 2, backgroundColor: "#F4A118" }} className="rounded-full" />))}
                     <span style={{ color: "#F4A118" }} className="font-bold text-xs">▶</span>
                   </div>
                 )}
               </div>
             ))}
           </div>
-
           <div className="text-center mt-6 sm:mt-8 lg:mt-10">
-            <Link
-              href="/contact"
-              style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
-              className="inline-block px-6 sm:px-8 md:px-10 py-2 sm:py-3 md:py-4 rounded-xl text-white font-extrabold text-sm sm:text-base md:text-lg hover:opacity-90 transition shadow-lg"
-            >
-              Book Your First Consultation →
+            <Link href="/contact" style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }} className="inline-block px-6 sm:px-8 md:px-10 py-2 sm:py-3 md:py-4 rounded-xl text-white font-extrabold text-sm sm:text-base md:text-lg hover:opacity-90 transition shadow-lg">
+              Book   Consultation →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          CANCER TYPES GRID - MOBILE SCROLL
-      ══════════════════════════════════════════════════ */}
+      {/* CANCER TYPES GRID */}
       <section className="py-10 sm:py-12 md:py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4 mb-6 sm:mb-8 md:mb-10">
             <div>
-              <span
-                className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide"
-                style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}
-              >
-                What We Treat
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold" style={{ color: "#0D3B38", ...heading }}>
-                Cancer Types & Treatment
-              </h2>
+              <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide" style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}>What We Treat</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold" style={{ color: "#0D3B38", ...heading }}>Cancer Types & Treatment</h2>
             </div>
-            <Link
-              href="/disease"
-              style={{ border: "2px solid #0D3B38", color: "#0D3B38" }}
-              className="inline-block px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl font-bold hover:bg-green-50 transition text-xs sm:text-sm whitespace-nowrap flex-shrink-0"
-            >
+            <Link href="/cancer-types" style={{ border: "2px solid #0D3B38", color: "#0D3B38" }} className="inline-block px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl font-bold hover:bg-green-50 transition text-xs sm:text-sm whitespace-nowrap flex-shrink-0">
               View All →
             </Link>
           </div>
-
-          {/* Mobile Horizontal Scroll */}
           <div className="lg:hidden w-full overflow-x-auto pb-6 -mb-2 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             <div className="flex gap-3 sm:gap-4 px-2 min-w-max">
               {cancerTypes.map((c) => (
-                <Link
-                  key={c.name}
-                  href={c.href}
-                  className="w-[140px] sm:w-[160px] flex-shrink-0 group flex flex-col items-center gap-2 p-3 sm:p-4 rounded-xl bg-white text-center hover:shadow-xl transition hover:-translate-y-1"
-                  style={{ border: "1px solid #e5f0ec", borderTop: "3px solid #0D3B38" }}
-                >
-                  <div
-                    className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-2xl sm:text-3xl group-hover:scale-110 transition-transform"
-                    style={{ backgroundColor: "#EEF7F4" }}
-                  >
-                    {c.emoji}
-                  </div>
+                <Link key={c.name} href={c.href} className="w-[140px] sm:w-[160px] flex-shrink-0 group flex flex-col items-center gap-2 p-3 sm:p-4 rounded-xl bg-white text-center hover:shadow-xl transition hover:-translate-y-1" style={{ border: "1px solid #e5f0ec", borderTop: "3px solid #0D3B38" }}>
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-2xl sm:text-3xl group-hover:scale-110 transition-transform" style={{ backgroundColor: "#EEF7F4" }}>{c.emoji}</div>
                   <p className="text-gray-700 font-bold text-xs leading-tight" style={heading}>{c.name}</p>
                   <p className="text-[10px] font-semibold" style={{ color: "#F4A118" }}>Learn More →</p>
                 </Link>
               ))}
             </div>
             <div className="flex justify-center mt-3 gap-1">
-              <div className="w-12 h-1 bg-gray-200 rounded-full">
-                <div className="w-4 h-1 bg-[#F4A118] rounded-full animate-pulse"></div>
-              </div>
+              <div className="w-12 h-1 bg-gray-200 rounded-full"><div className="w-4 h-1 bg-[#F4A118] rounded-full animate-pulse"></div></div>
               <span className="text-[10px] text-gray-400">← Swipe →</span>
             </div>
           </div>
-
-          {/* Desktop Grid */}
           <div className="hidden lg:grid lg:grid-cols-4 gap-5">
             {cancerTypes.map((c) => (
-              <Link
-                key={c.name}
-                href={c.href}
-                className="group flex flex-col items-center gap-3 p-5 rounded-2xl bg-white text-center hover:shadow-xl transition hover:-translate-y-1"
-                style={{ border: "1px solid #e5f0ec", borderTop: "3px solid #0D3B38" }}
-              >
-                <div
-                  className="w-16 h-16 rounded-full flex items-center justify-center text-3xl group-hover:scale-110 transition-transform"
-                  style={{ backgroundColor: "#EEF7F4" }}
-                >
-                  {c.emoji}
-                </div>
+              <Link key={c.name} href={c.href} className="group flex flex-col items-center gap-3 p-5 rounded-2xl bg-white text-center hover:shadow-xl transition hover:-translate-y-1" style={{ border: "1px solid #e5f0ec", borderTop: "3px solid #0D3B38" }}>
+                <div className="w-16 h-16 rounded-full flex items-center justify-center text-3xl group-hover:scale-110 transition-transform" style={{ backgroundColor: "#EEF7F4" }}>{c.emoji}</div>
                 <p className="text-gray-700 font-bold text-sm leading-tight" style={heading}>{c.name}</p>
                 <p className="text-xs font-semibold" style={{ color: "#F4A118" }}>Learn More →</p>
               </Link>
@@ -2041,304 +2004,298 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          HOW TO CONSULT US – 6 STEPS - MOBILE SCROLL
-      ══════════════════════════════════════════════════ */}
-      <section style={{ backgroundColor: "#EEF7F4" }} className="py-10 sm:py-12 md:py-16 overflow-hidden">
+      {/* YOUR JOURNEY WITH US – PREMIUM BOX WITH CLICKABLE LINKS - ENHANCED */}
+      <section className="py-10 sm:py-12 md:py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <span
-              className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide"
-              style={{ backgroundColor: "#0D3B38", color: "white" }}
-            >
-              Easy Process
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2 sm:mb-3" style={{ color: "#0D3B38", ...heading }}>
-              How to Consult Us
-            </h2>
-            <p className="text-gray-500 text-xs sm:text-sm max-w-xl mx-auto px-4" style={body}>
-              Starting your treatment is simple. Follow these 6 easy steps.
-            </p>
-          </div>
-
-          {/* Mobile Horizontal Scroll */}
-          <div className="lg:hidden w-full overflow-x-auto pb-6 -mb-2 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            <div className="flex gap-4 px-2 min-w-max">
-              {consultationBonusSteps.map((step) => (
-                <div
-                  key={step.num}
-                  className="w-[260px] sm:w-[280px] flex-shrink-0 bg-white rounded-2xl p-4 sm:p-5 flex gap-3 sm:gap-4 items-start hover:shadow-lg transition"
-                  style={{ border: "1px solid #c8e8e0" }}
+          <div className="bg-gradient-to-br from-[#EEF7F4] via-white to-[#EEF7F4] rounded-3xl p-6 sm:p-8 md:p-12 shadow-xl border border-[#c8e8e0] relative overflow-hidden">
+            {/* Decorative Background Elements */}
+            <div className="absolute top-0 left-0 w-64 h-64 bg-[#F4A118]/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#0D3B38]/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+            
+            <div className="text-center mb-8 sm:mb-10 md:mb-12 relative z-10">
+              <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide" style={{ backgroundColor: "#0D3B38", color: "white" }}>Explore Our Services</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold" style={{ color: "#0D3B38", ...heading }}>Your Journey <span className="text-[#F4A118]">With Us</span></h2>
+              <p className="text-gray-500 text-xs sm:text-sm mt-2 max-w-2xl mx-auto" style={body}>Discover our comprehensive approach to holistic cancer care</p>
+              <div className="w-20 h-1 bg-[#F4A118] rounded-full mx-auto mt-3"></div>
+            </div>
+            
+            {/* Premium Grid Layout */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-5 md:gap-6 relative z-10">
+              {yourJourneyLinks.map((link) => (
+                <Link 
+                  key={link.id} 
+                  href={link.href} 
+                  className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-white p-4 sm:p-5 text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border border-[#e5f0ec] hover:border-[#F4A118]"
                 >
-                  <div
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl sm:text-2xl flex-shrink-0"
-                    style={{ backgroundColor: "#0D3B38" }}
+                  {/* Animated Gradient Background */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${link.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                  
+                  {/* Icon with Glow Effect */}
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-[#F4A118]/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 scale-75 group-hover:scale-100"></div>
+                    <div className="text-3xl sm:text-4xl mb-2 sm:mb-3 transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 relative z-10">{link.icon}</div>
+                  </div>
+                  
+                  {/* Title with Color Transition */}
+                  <h3 
+                    className="text-sm sm:text-base font-bold mb-1 transition-colors duration-300 group-hover:text-[#F4A118]" 
+                    style={{ color: link.color, ...heading }}
                   >
-                    {step.icon}
+                    {link.title}
+                  </h3>
+                  
+                  {/* Description with Fade In */}
+                  <p className="hidden lg:block text-[10px] text-gray-400 mt-1 leading-tight group-hover:text-gray-600 transition-all duration-300 opacity-70 group-hover:opacity-100">
+                    {link.description}
+                  </p>
+                  
+                  {/* Animated Underline */}
+                  <div className="w-0 h-0.5 bg-[#F4A118] mx-auto mt-2 group-hover:w-8 transition-all duration-300 rounded-full"></div>
+                  
+                  {/* Arrow Icon that appears on hover */}
+                  <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+                    <svg className="w-4 h-4 text-[#F4A118]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
                   </div>
-                  <div>
-                    <p className="text-[10px] sm:text-xs font-extrabold mb-0.5 sm:mb-1" style={{ color: "#F4A118" }}>Step {step.num}</p>
-                    <h3 className="font-bold text-gray-800 text-xs sm:text-sm mb-0.5 sm:mb-1" style={heading}>{step.title}</h3>
-                    <p className="text-gray-400 text-[10px] sm:text-xs leading-relaxed" style={body}>{step.desc}</p>
-                  </div>
-                </div>
+                  
+                  {/* Subtle Border Animation */}
+                  <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-[#F4A118]/30 transition-all duration-300 pointer-events-none"></div>
+                </Link>
               ))}
             </div>
-            <div className="flex justify-center mt-3 gap-1">
-              <div className="w-12 h-1 bg-gray-200 rounded-full">
-                <div className="w-4 h-1 bg-[#F4A118] rounded-full animate-pulse"></div>
+            
+            {/* Interactive CTA with Pulse Effect */}
+            <div className="text-center mt-8 sm:mt-10 relative z-10">
+              <div className="flex justify-center gap-2 mb-3">
+                <div className="w-2 h-2 rounded-full bg-[#F4A118] animate-pulse"></div>
+                <div className="w-2 h-2 rounded-full bg-[#F4A118] animate-pulse delay-100"></div>
+                <div className="w-2 h-2 rounded-full bg-[#F4A118] animate-pulse delay-200"></div>
               </div>
-              <span className="text-[10px] text-gray-400">← Swipe →</span>
-            </div>
-          </div>
-
-          {/* Desktop Grid */}
-          <div className="hidden lg:grid lg:grid-cols-3 gap-5 mb-10">
-            {consultationBonusSteps.map((step) => (
-              <div
-                key={step.num}
-                className="bg-white rounded-2xl p-6 flex gap-5 items-start hover:shadow-lg transition"
-                style={{ border: "1px solid #c8e8e0" }}
-              >
-                <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
-                  style={{ backgroundColor: "#0D3B38" }}
-                >
-                  {step.icon}
-                </div>
-                <div>
-                  <p className="text-xs font-extrabold mb-1" style={{ color: "#F4A118" }}>Step {step.num}</p>
-                  <h3 className="font-bold text-gray-800 text-sm mb-1" style={heading}>{step.title}</h3>
-                  <p className="text-gray-400 text-xs leading-relaxed" style={body}>{step.desc}</p>
-                </div>
+              <p className="text-gray-500 text-xs sm:text-sm mb-3" style={body}>
+                <span className="font-semibold text-[#0D3B38]">✨ Premium Experience</span> — Click any card to explore detailed services
+              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+                <span className="text-xs text-gray-500">🔍 Interactive Journey Maps</span>
+                <svg className="w-3 h-3 text-[#F4A118]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-6 sm:mt-8 lg:mt-10">
-            <Link
-              href="/contact"
-              style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
-              className="inline-block px-6 sm:px-8 md:px-10 py-2 sm:py-3 md:py-4 rounded-xl text-white font-extrabold text-sm sm:text-base md:text-lg hover:opacity-90 transition shadow-lg"
-            >
-              Book an Appointment →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════
-          SECOND APPOINTMENT / PHONE CTA – 2 COLUMN
-      ══════════════════════════════════════════════════ */}
-      <section className="py-10 sm:py-12 md:py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-
-            {/* Left - REPLACED WITH IMAGE */}
-            <div className="relative h-[300px] sm:h-[350px] md:h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl">
-              <Image
-                src="https://bkarogyam.com/varanasicenter.jpg"
-                alt="BK Cancer Care Varanasi Center"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <p className="text-lg sm:text-xl md:text-2xl font-bold" style={heading}>BK Cancer Care</p>
-                <p className="text-xs sm:text-sm opacity-90">Varanasi Head Center</p>
-              </div>
-            </div>
-
-            {/* Right */}
-            <div className="flex flex-col gap-3 sm:gap-4">
-              {/* Call CTA */}
-              <div
-                className="rounded-xl sm:rounded-2xl p-4 sm:p-6"
-                style={{ backgroundColor: "#0D3B38" }}
-              >
-                <p className="text-white/70 text-xs sm:text-sm mb-1 sm:mb-2">Call Us Now</p>
-                <a
-                  href="tel:+918081222333"
-                  className="text-xl sm:text-2xl md:text-3xl font-extrabold block mb-3 sm:mb-4 hover:underline"
-                  style={{ color: "#F4A118" }}
-                >
-                  +91 8081222333
-                </a>
-                <Link
-                  href="/contact"
-                  style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
-                  className="inline-block w-full text-center py-2 sm:py-3 rounded-lg sm:rounded-xl text-white font-extrabold hover:opacity-90 transition text-xs sm:text-sm"
-                >
-                  📞 Book Consultation
-                </Link>
-              </div>
-
-              {/* WhatsApp CTA */}
-              <a
-                href="https://wa.me/918081222333"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl sm:rounded-2xl p-3 sm:p-5 flex items-center gap-3 sm:gap-4 hover:opacity-90 transition"
-                style={{ backgroundColor: "#25D366" }}
-              >
-                <div className="text-3xl sm:text-4xl">💬</div>
-                <div>
-                  <p className="text-white font-extrabold text-sm sm:text-base">Chat on WhatsApp</p>
-                  <p className="text-white/80 text-[10px] sm:text-xs mt-0.5">Quick replies</p>
-                </div>
-              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          VIDEO TESTIMONIALS - UPDATED WITH YOUTUBE LINKS - MOBILE SCROLL
-      ══════════════════════════════════════════════════ */}
+      {/* PATIENT RESOURCES SECTION */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-bold px-4 py-1.5 rounded-full mb-3 tracking-wide" style={{ backgroundColor: "#0D3B38", color: "white" }}>
+              Helpful Resources
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "#0D3B38", ...heading }}>
+              Patient Resources
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto" style={body}>
+              Educational materials, guides, and support for your healing journey
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="bg-white rounded-xl p-6 text-center hover:shadow-md transition" style={{ border: "1px solid #e5f0ec" }}>
+              <div className="text-4xl mb-3">📘</div>
+              <h3 className="font-bold text-lg mb-2" style={{ color: "#0D3B38" }}>Downloadable Guides</h3>
+              <p className="text-gray-500 text-sm mb-3">Complete guide to Ayurvedic cancer care, diet plans, and more</p>
+              <Link href="/downloadable-guides" className="text-sm font-semibold hover:underline" style={{ color: "#F4A118" }}>View Guides →</Link>
+            </div>
+            <div className="bg-white rounded-xl p-6 text-center hover:shadow-md transition" style={{ border: "1px solid #e5f0ec" }}>
+              <div className="text-4xl mb-3">🎥</div>
+              <h3 className="font-bold text-lg mb-2" style={{ color: "#0D3B38" }}>Educational Videos</h3>
+              <p className="text-gray-500 text-sm mb-3">Watch expert talks and patient success stories</p>
+              <Link href="/educational-videos" className="text-sm font-semibold hover:underline" style={{ color: "#F4A118" }}>Watch Videos →</Link>
+            </div>
+            <div className="bg-white rounded-xl p-6 text-center hover:shadow-md transition" style={{ border: "1px solid #e5f0ec" }}>
+              <div className="text-4xl mb-3">👨‍👩‍👧‍👦</div>
+              <h3 className="font-bold text-lg mb-2" style={{ color: "#0D3B38" }}>Caregiver Support</h3>
+              <p className="text-gray-500 text-sm mb-3">Tips and resources for family members</p>
+              <Link href="/caregiver-support" className="text-sm font-semibold hover:underline" style={{ color: "#F4A118" }}>Learn More →</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VIDEO TESTIMONIALS */}
       <section style={{ backgroundColor: "#F8F9FA" }} className="py-10 sm:py-12 md:py-16 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10">
-            <span
-              className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide"
-              style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}
-            >
-              Patient Stories
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2" style={{ color: "#0D3B38", ...heading }}>
-              Patient Success Stories
-            </h2>
-            <p className="text-gray-400 text-xs sm:text-sm" style={body}>
-              Watch real patients share their healing journey with BK Cancer Care
-            </p>
+            <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide" style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}>Patient Stories</span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2" style={{ color: "#0D3B38", ...heading }}>Patient Success Stories</h2>
+            <p className="text-gray-400 text-xs sm:text-sm" style={body}>Watch real patients share their healing journey with BK Cancer Care</p>
           </div>
-
-          {/* Featured video */}
-          <div
-            onClick={() => openYouTubeVideo(youtubeVideos[0].id)}
-            className="relative rounded-2xl sm:rounded-3xl overflow-hidden mb-6 flex items-center justify-center cursor-pointer group hover:shadow-2xl transition"
-            style={{
-              background: "linear-gradient(135deg, #071e1c, #0D3B38)",
-              height: 250,
-              border: "2px solid #c8e8e0",
-            }}
-          >
+          <div onClick={() => openYouTubeVideo(youtubeVideos[0].id)} className="relative rounded-2xl sm:rounded-3xl overflow-hidden mb-6 flex items-center justify-center cursor-pointer group hover:shadow-2xl transition" style={{ background: "linear-gradient(135deg, #071e1c, #0D3B38)", height: 250, border: "2px solid #c8e8e0" }}>
             <div className="absolute inset-0 flex items-center justify-center flex-col gap-2 sm:gap-3 text-center px-4 sm:px-8">
-              <div
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform"
-                style={{ backgroundColor: "#F4A118" }}
-              >
-                <span className="text-white text-2xl sm:text-3xl ml-1">▶</span>
-              </div>
-              <p className="text-white font-extrabold text-base sm:text-xl mt-1 sm:mt-2" style={heading}>
-                {youtubeVideos[0].title}
-              </p>
-              <p className="text-white/60 text-xs sm:text-sm">
-                {youtubeVideos[0].description}
-              </p>
-              <span
-                className="mt-1 sm:mt-2 text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full"
-                style={{ backgroundColor: "rgba(244,161,24,0.2)", color: "#F4A118", border: "1px solid rgba(244,161,24,0.3)" }}
-              >
-                5 Million+ Lives Touched
-              </span>
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform" style={{ backgroundColor: "#F4A118" }}><span className="text-white text-2xl sm:text-3xl ml-1">▶</span></div>
+              <p className="text-white font-extrabold text-base sm:text-xl mt-1 sm:mt-2" style={heading}>{youtubeVideos[0].title}</p>
+              <p className="text-white/60 text-xs sm:text-sm">{youtubeVideos[0].description}</p>
+              <span className="mt-1 sm:mt-2 text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 sm:py-1.5 rounded-full" style={{ backgroundColor: "rgba(244,161,24,0.2)", color: "#F4A118", border: "1px solid rgba(244,161,24,0.3)" }}>5 Million+ Lives Touched</span>
             </div>
           </div>
-
-          {/* Mobile Horizontal Scroll for smaller videos */}
           <div className="lg:hidden w-full overflow-x-auto pb-6 -mb-2 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             <div className="flex gap-4 px-2 min-w-max">
               {youtubeVideos.slice(1).map((video, index) => (
-                <div
-                  key={index}
-                  onClick={() => openYouTubeVideo(video.id)}
-                  className="w-[200px] sm:w-[220px] flex-shrink-0 relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer group hover:shadow-lg transition"
-                  style={{ height: 150, border: "1px solid #e5f0ec", backgroundColor: "#e8f5ee" }}
-                >
+                <div key={index} onClick={() => openYouTubeVideo(video.id)} className="w-[200px] sm:w-[220px] flex-shrink-0 relative rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer group hover:shadow-lg transition" style={{ height: 150, border: "1px solid #e5f0ec", backgroundColor: "#e8f5ee" }}>
                   <div className="absolute inset-0 flex items-center justify-center flex-col gap-1 p-2 text-center">
-                    <div
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg"
-                      style={{ backgroundColor: "#0D3B38" }}
-                    >
-                      <span className="text-white text-base sm:text-lg ml-1">▶</span>
-                    </div>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg" style={{ backgroundColor: "#0D3B38" }}><span className="text-white text-base sm:text-lg ml-1">▶</span></div>
                     <p className="text-gray-700 font-bold text-[10px] sm:text-xs mt-1 line-clamp-2" style={heading}>{video.title}</p>
                     <p className="text-gray-500 text-[8px] sm:text-[10px] line-clamp-1">{video.description}</p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="flex justify-center mt-3 gap-1">
-              <div className="w-12 h-1 bg-gray-200 rounded-full">
-                <div className="w-4 h-1 bg-[#F4A118] rounded-full animate-pulse"></div>
-              </div>
-              <span className="text-[10px] text-gray-400">← Swipe →</span>
-            </div>
+            <div className="flex justify-center mt-3 gap-1"><div className="w-12 h-1 bg-gray-200 rounded-full"><div className="w-4 h-1 bg-[#F4A118] rounded-full animate-pulse"></div></div><span className="text-[10px] text-gray-400">← Swipe →</span></div>
           </div>
-
-          {/* Desktop Grid */}
           <div className="hidden lg:grid lg:grid-cols-5 gap-4 mb-8">
             {youtubeVideos.slice(1).map((video, index) => (
-              <div
-                key={index}
-                onClick={() => openYouTubeVideo(video.id)}
-                className="relative rounded-2xl overflow-hidden cursor-pointer group hover:shadow-lg transition"
-                style={{ height: 180, border: "1px solid #e5f0ec", backgroundColor: "#e8f5ee" }}
-              >
+              <div key={index} onClick={() => openYouTubeVideo(video.id)} className="relative rounded-2xl overflow-hidden cursor-pointer group hover:shadow-lg transition" style={{ height: 180, border: "1px solid #e5f0ec", backgroundColor: "#e8f5ee" }}>
                 <div className="absolute inset-0 flex items-center justify-center flex-col gap-2 p-3 text-center">
-                  <div
-                    className="w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg"
-                    style={{ backgroundColor: "#0D3B38" }}
-                  >
-                    <span className="text-white text-lg ml-1">▶</span>
-                  </div>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg" style={{ backgroundColor: "#0D3B38" }}><span className="text-white text-lg ml-1">▶</span></div>
                   <p className="text-gray-700 font-bold text-xs mt-1 line-clamp-2" style={heading}>{video.title}</p>
                   <p className="text-gray-500 text-[10px] line-clamp-1">{video.description}</p>
                 </div>
               </div>
             ))}
           </div>
-
           <div className="text-center mt-6 sm:mt-8">
-            <Link
-              href="/contact"
-              style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
-              className="inline-block px-6 sm:px-8 py-2 sm:py-3 rounded-lg sm:rounded-xl text-white font-extrabold text-sm sm:text-base hover:opacity-90 transition shadow-md"
-            >
-              Book Your Consultation →
+            <Link href="/case-studies" style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }} className="inline-block px-6 sm:px-8 py-2 sm:py-3 rounded-lg sm:rounded-xl text-white font-extrabold text-sm sm:text-base hover:opacity-90 transition shadow-md">
+              View All Success Stories →
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          GOOGLE REVIEWS – 4 CARDS - MOBILE SCROLL
-      ══════════════════════════════════════════════════ */}
+      {/* MEET THE DOCTORS SECTION */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-bold px-4 py-1.5 rounded-full mb-3 tracking-wide" style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}>
+              Our Experts
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "#0D3B38", ...heading }}>
+              Meet Our Doctors
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto" style={body}>
+              Experienced Ayurvedic oncologists dedicated to your healing
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition" style={{ border: "1px solid #e5f0ec" }}>
+              <div className="relative h-64 bg-gradient-to-r from-[#0D3B38] to-[#1B6B5A] flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-24 h-24 rounded-full bg-[#F4A118] flex items-center justify-center mx-auto text-4xl">👨‍⚕️</div>
+                </div>
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-bold mb-1" style={{ color: "#0D3B38" }}>Dr. BK Chaurasia</h3>
+                <p className="text-sm text-gray-500 mb-2">BAMS, MD (Ayurveda)</p>
+                <p className="text-sm font-semibold mb-2" style={{ color: "#F4A118" }}>Founder & Chief Vaidya</p>
+                <p className="text-gray-600 text-sm mb-3">24+ Years Experience in Ayurvedic Oncology</p>
+                <Link href="/doctors" className="inline-block px-4 py-2 rounded-lg text-white text-sm font-semibold transition hover:opacity-90" style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}>
+                  View Profile →
+                </Link>
+              </div>
+            </div>
+            <div className="bg-gray-50 rounded-2xl overflow-hidden hover:shadow-lg transition" style={{ border: "1px solid #e5f0ec" }}>
+              <div className="relative h-64 bg-gradient-to-r from-[#0D3B38] to-[#1B6B5A] flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-24 h-24 rounded-full bg-[#F4A118] flex items-center justify-center mx-auto text-4xl">👩‍⚕️</div>
+                </div>
+              </div>
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-bold mb-1" style={{ color: "#0D3B38" }}>Dr. Deepak</h3>
+                <p className="text-sm text-gray-500 mb-2">BAMS, PhD (Ayurveda)</p>
+                <p className="text-sm font-semibold mb-2" style={{ color: "#F4A118" }}>Cancer Research Specialist</p>
+                <p className="text-gray-600 text-sm mb-3">15+ Years Experience in Research & Clinical Care</p>
+                <Link href="/doctors" className="inline-block px-4 py-2 rounded-lg text-white text-sm font-semibold transition hover:opacity-90" style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}>
+                  View Profile →
+                </Link>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center mt-10">
+            <Link href="/doctors" className="text-[#F4A118] font-semibold hover:underline">
+              View All Doctors →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* RESEARCH & PUBLICATIONS SECTION */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <span className="inline-block text-xs font-bold px-4 py-1.5 rounded-full mb-3 tracking-wide" style={{ backgroundColor: "#0D3B38", color: "white" }}>
+              Research & Evidence
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4" style={{ color: "#0D3B38", ...heading }}>
+              Research & Publications
+            </h2>
+            <p className="text-gray-500 max-w-2xl mx-auto" style={body}>
+              Scientific validation of our Ayurvedic cancer care protocols
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white rounded-xl p-6" style={{ border: "1px solid #e5f0ec" }}>
+              <h3 className="font-bold text-lg mb-3" style={{ color: "#0D3B38" }}>📄 Recent Publications</h3>
+              <ul className="space-y-3">
+                {[
+                  "Efficacy of Ayurvedic Herbal Formulations in Advanced Lung Cancer",
+                  "Panchakarma Therapy in Cancer Care: A Comprehensive Review",
+                  "Quality of Life Improvement in Breast Cancer Patients",
+                  "Herbal Immunomodulators in Cancer Treatment"
+                ].map((pub, i) => (
+                  <li key={i} className="text-gray-600 text-sm">• {pub}</li>
+                ))}
+              </ul>
+              <Link href="/research" className="inline-block mt-4 text-sm font-semibold hover:underline" style={{ color: "#F4A118" }}>
+                View All Publications →
+              </Link>
+            </div>
+            <div className="bg-white rounded-xl p-6" style={{ border: "1px solid #e5f0ec" }}>
+              <h3 className="font-bold text-lg mb-3" style={{ color: "#0D3B38" }}>🔬 Clinical Studies</h3>
+              <ul className="space-y-3">
+                {[
+                  "Chemo Support Program - Phase 2 Clinical Trial",
+                  "Immunity Restoration Study - 500+ Patients",
+                  "Long-term Follow-up Study - 5 Years Data",
+                  "Quality of Life Assessment - Published Results"
+                ].map((study, i) => (
+                  <li key={i} className="text-gray-600 text-sm">• {study}</li>
+                ))}
+              </ul>
+              <Link href="/research" className="inline-block mt-4 text-sm font-semibold hover:underline" style={{ color: "#F4A118" }}>
+                View Research →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* GOOGLE REVIEWS */}
       <section className="py-10 sm:py-12 md:py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 sm:gap-4 mb-3">
             <div>
-              <span
-                className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide"
-                style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}
-              >
-                Patient Reviews
-              </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold" style={{ color: "#0D3B38", ...heading }}>
-                Patient Reviews
-              </h2>
+              <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide" style={{ backgroundColor: "#EEF7F4", color: "#0D3B38" }}>Patient Reviews</span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold" style={{ color: "#0D3B38", ...heading }}>Patient Reviews</h2>
             </div>
-            <Link
-              href="/contact"
-              style={{ backgroundColor: "#0D3B38" }}
-              className="inline-block px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl text-white font-bold hover:opacity-90 transition text-xs sm:text-sm whitespace-nowrap"
-            >
+            <Link href="/case-studies" style={{ backgroundColor: "#0D3B38" }} className="inline-block px-4 sm:px-6 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl text-white font-bold hover:opacity-90 transition text-xs sm:text-sm whitespace-nowrap">
               See More
             </Link>
           </div>
-          <p className="text-gray-400 text-xs sm:text-sm mb-5 sm:mb-7" style={body}>
-            Who experienced our exceptional Ayurvedic treatment
-          </p>
+          <p className="text-gray-400 text-xs sm:text-sm mb-5 sm:mb-7" style={body}>Who experienced our exceptional Ayurvedic treatment</p>
 
           {/* Google rating bar */}
           <div
@@ -2439,9 +2396,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          AWARDS & RECOGNITION - MOBILE SCROLL
-      ══════════════════════════════════════════════════ */}
+      {/* AWARDS & RECOGNITION */}
       <section style={{ backgroundColor: "#F8F9FA" }} className="py-10 sm:py-12 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-6 sm:mb-8">
@@ -2453,7 +2408,6 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Mobile Horizontal Scroll */}
           <div className="lg:hidden w-full overflow-x-auto pb-6 -mb-2 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             <div className="flex gap-3 px-2 min-w-max">
               {awards.map((award, i) => (
@@ -2484,7 +2438,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Desktop Grid */}
           <div className="hidden lg:grid lg:grid-cols-6 gap-4">
             {awards.map((award, i) => (
               <div
@@ -2509,14 +2462,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          PHILOSOPHY SECTION – DARK GREEN
-      ══════════════════════════════════════════════════ */}
+      {/* PHILOSOPHY SECTION */}
       <section style={{ backgroundColor: "#0D3B38" }} className="py-10 sm:py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-
-            {/* Left – Philosophy */}
             <div>
               <p className="text-[10px] sm:text-xs font-extrabold tracking-widest uppercase mb-2 sm:mb-3" style={{ color: "#F4A118" }}>
                 Our Philosophy
@@ -2544,7 +2493,7 @@ export default function HomePage() {
               </div>
               <a
                 href="https://youtu.be/utvjqTPRm3Y"
-                target="_blank"
+                target=""
                 rel="noopener noreferrer"
                 style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
                 className="inline-block px-5 sm:px-7 py-2 sm:py-3 rounded-lg sm:rounded-xl text-white font-bold text-xs sm:text-sm hover:opacity-90 transition shadow-lg"
@@ -2553,7 +2502,6 @@ export default function HomePage() {
               </a>
             </div>
 
-            {/* Right – YouTube video */}
             <div
               onClick={() => openYouTubeVideo(youtubeVideos[0].id)}
               className="relative rounded-2xl sm:rounded-3xl overflow-hidden flex items-center justify-center cursor-pointer group hover:shadow-2xl transition"
@@ -2578,13 +2526,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          FREE CONSULTATION CTA BANNER
-      ══════════════════════════════════════════════════ */}
+      {/* FREE CONSULTATION CTA BANNER */}
       <section style={{ background: "linear-gradient(135deg, #F4A118 0%, #d4600a 100%)" }} className="py-10 sm:py-12 md:py-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold text-white mb-2 sm:mb-3" style={heading}>
-            Free Cancer Consultation Today
+            Cancer Consultation Today
           </h2>
           <p className="text-white/90 mb-5 sm:mb-6 md:mb-8 text-sm sm:text-base max-w-2xl mx-auto" style={body}>
             Talk to our Ayurvedic cancer specialists now.
@@ -2617,33 +2563,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════════════
-          FLOATING BUTTONS (always visible)
-      ══════════════════════════════════════════════════ */}
+      {/* FLOATING BUTTONS */}
+     <a
+  href="tel:+918081222333"
+  className="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 z-50 group"
+  aria-label="Call us"
+>
+  {/* Glow Effect */}
+  <div className="absolute inset-0 rounded-full bg-[#F4A118] blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+  
+  {/* Main Button */}
+  <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-[#0D3B38] to-[#1B6B5A] flex items-center justify-center text-white shadow-xl hover:shadow-2xl hover:scale-110 transition-all duration-300 cursor-pointer group-hover:shadow-[#F4A118]/30">
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+    </svg>
+  </div>
+  
+  {/* Tooltip on Hover */}
+  <span className="absolute left-full ml-3 top-1/2 -translate-y-1/2 px-3 py-1.5 bg-black/80 backdrop-blur-sm text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none shadow-lg">
+    Call Now
+  </span>
+</a>
 
-      {/* Call – bottom left */}
       <a
-        href="tel:+918081222333"
-        style={{ backgroundColor: "#0D3B38" }}
-        className="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl shadow-xl hover:scale-110 transition"
-        aria-label="Call us"
-      >
-        📞
-      </a>
+  href="https://wa.me/918081222333"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-2xl hover:scale-110 transition-all duration-300"
+  style={{ backgroundColor: "#25D366" }}
+  aria-label="Chat on WhatsApp"
+>
+  <svg className="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.277-.571c.916.519 1.923.792 3.054.792h.002c3.18 0 5.767-2.587 5.768-5.766.001-3.18-2.585-5.766-5.766-5.766zM12.031 16.867c-1.059 0-2.083-.291-2.958-.794l-.176-.101-1.35.339.362-1.32-.11-.186c-.575-.924-.877-1.962-.877-3.058 0-2.763 2.247-5.009 5.009-5.009 2.763 0 5.009 2.247 5.009 5.009.001 2.763-2.246 5.009-5.009 5.009zM13.791 13.354c-.064-.021-.37-.102-.53-.112-.16-.01-.276.021-.392.106-.117.085-.44.514-.54.619-.099.106-.199.128-.363.042-.164-.085-.691-.255-1.317-.812-.486-.433-.814-.968-.909-1.132-.095-.164-.01-.252.072-.333.072-.072.161-.187.241-.281.08-.094.107-.161.16-.268.054-.107.027-.2-.013-.281-.04-.08-.362-.873-.496-1.196-.131-.313-.263-.271-.362-.276-.093-.005-.2-.005-.307-.005-.107 0-.281.04-.429.201-.148.161-.566.553-.566 1.35 0 .797.581 1.566.662 1.674.081.108 1.143 1.746 2.771 2.448.387.167.689.267.925.341.389.121.742.104 1.022.064.312-.045.96-.393 1.096-.772.136-.379.136-.704.095-.772-.041-.068-.151-.108-.316-.172z"/>
+  </svg>
+</a>
 
-      {/* WhatsApp – bottom right */}
-      <a
-        href="https://wa.me/918081222333"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ backgroundColor: "#25D366" }}
-        className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-white text-xl sm:text-2xl shadow-xl hover:scale-110 transition"
-        aria-label="WhatsApp us"
-      >
-        💬
-      </a>
-
-      {/* Free Consultation – right edge vertical */}
       <Link
         href="/contact"
         style={{
@@ -2651,9 +2605,9 @@ export default function HomePage() {
           writingMode: "vertical-rl",
         }}
         className="fixed top-1/2 right-0 z-50 -translate-y-1/2 px-2 sm:px-3 py-3 sm:py-5 rounded-l-lg sm:rounded-l-xl text-white font-bold text-[10px] sm:text-xs shadow-xl hover:opacity-90 transition select-none"
-        aria-label="Free Consultation"
+        aria-label="Book Consultation"
       >
-        Free Consultation
+       Book Consultation
       </Link>
 
       {/* Success Popup */}

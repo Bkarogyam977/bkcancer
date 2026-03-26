@@ -8,11 +8,13 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div
-                style={{ backgroundColor: "#F4A118" }}
-                className="w-10 h-10 rounded-full flex items-center justify-center"
-              >
-                <span className="text-white font-bold text-lg">BK</span>
+              {/* Circular logo from provided image */}
+              <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 bg-white/10 ring-1 ring-white/20">
+                <img
+                  src="https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/23/Gemini_Generated_Image_sqqv19sqqv19sqqv1.png"
+                  alt="BK Arogyam Logo"
+                  className="w-full h-full object-cover object-center"
+                />
               </div>
               <div>
                 <p className="text-white font-bold text-lg leading-tight">BK Arogyam</p>
@@ -23,7 +25,7 @@ export default function Footer() {
               BK Arogyam is a trusted Ayurvedic healthcare center providing holistic treatment for chronic and lifestyle diseases.
             </p>
             <div className="flex gap-3 mt-4">
-              {["Twitter", "Facebook", "Instagram", "YouTube"].map((s) => (
+              {[].map((s) => (
                 <a
                   key={s}
                   href="#"
@@ -66,11 +68,11 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-white/70">
               <li className="flex gap-2">
                 <span>📍</span>
-                <span>Second Floor, 77, Block C, Tarun Enclave, Pitampura, New Delhi, Delhi, 110034</span>
+                <span>Manduvadih Lahartara Road, Shivdaspur, Near Hori Lal Park, Varanasi pin 221103</span>
               </li>
               <li className="flex gap-2">
                 <span>📧</span>
-                <span>bkarogyam@gmail.com</span>
+                <span>info@bkarogyam.com</span>
               </li>
               <li className="flex gap-2">
                 <span>📞</span>

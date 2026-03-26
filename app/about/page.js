@@ -1,234 +1,7 @@
-// import Link from "next/link";
-// import type { Metadata } from "next";
-
-// export const metadata: Metadata = {
-//   title: "About Us - BK Arogyam",
-//   description: "Learn about BK Arogyam's mission, our expert doctors, and our holistic Ayurvedic approach to healing chronic diseases.",
-// };
-
-// const team = [
-//   { name: "Dr. Arun Kumar", role: "Chief Ayurvedic Physician", exp: "20+ years experience in treating cancer & kidney disease" },
-//   { name: "Dr. Priya Sharma", role: "Panchakarma Specialist", exp: "15+ years in detoxification & rejuvenation therapies" },
-//   { name: "Dr. Rajesh Verma", role: "Herbal Medicine Expert", exp: "18+ years in formulating personalised herbal treatments" },
-//   { name: "Dr. Sunita Yadav", role: "Diet & Lifestyle Consultant", exp: "12+ years guiding patients on Ayurvedic nutrition" },
-// ];
-
-// const milestones = [
-//   { year: "2000", event: "BK Arogyam founded in New Delhi" },
-//   { year: "2005", event: "Opened 2nd clinic in Lucknow" },
-//   { year: "2010", event: "NABH Accreditation achieved" },
-//   { year: "2015", event: "Expanded to 10 clinics across India" },
-//   { year: "2020", event: "10,000+ patients successfully treated" },
-//   { year: "2024", event: "17 locations — 6 hospitals & 11 clinics" },
-// ];
-
-// export default function AboutPage() {
-//   return (
-//     <>
-//       {/* Page Banner */}
-//       <section style={{ backgroundColor: "#0D3B38" }} className="py-16">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-//           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-//             About <span style={{ color: "#F4A118" }}>BK Arogyam</span>
-//           </h1>
-//           <p className="text-white/70 max-w-2xl mx-auto text-lg">
-//             A trusted name in Ayurvedic healthcare — healing lives through the ancient wisdom of India.
-//           </p>
-//           <div className="flex justify-center gap-2 mt-4 text-sm text-white/50">
-//             <Link href="/" className="hover:text-white transition">Home</Link>
-//             <span>/</span>
-//             <span style={{ color: "#F4A118" }}>About Us</span>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Our Story */}
-//       <section className="py-16 bg-white">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-//             <div>
-//               <h2 className="text-4xl font-bold mb-6">
-//                 Our <span style={{ color: "#F4A118" }}>Story</span>
-//               </h2>
-//               <p className="text-gray-600 leading-relaxed mb-4">
-//                 BK Arogyam was founded with a single vision: to bring the ancient healing wisdom of Ayurveda to every corner of India. We believe that nature holds the cure for every ailment, and Ayurveda is the science that unlocks this potential.
-//               </p>
-//               <p className="text-gray-600 leading-relaxed mb-4">
-//                 Over the past 25 years, BK Arogyam has grown from a single clinic in New Delhi to a network of 17 locations across India, including 6 full-fledged hospitals and 11 specialized clinics. Our team of experienced Ayurvedic doctors and therapists has helped more than 10,000 patients regain their health and vitality.
-//               </p>
-//               <p className="text-gray-600 leading-relaxed">
-//                 We specialize in treating chronic conditions such as cancer, kidney disease, diabetes, liver disease, and more — through personalized Ayurvedic protocols that address the root cause rather than just managing symptoms.
-//               </p>
-//             </div>
-//             <div className="grid grid-cols-2 gap-4">
-//               {[
-//                 { number: "25+", label: "Years of Experience" },
-//                 { number: "10,000+", label: "Patients Treated" },
-//                 { number: "17", label: "Clinic Locations" },
-//                 { number: "50+", label: "Expert Doctors" },
-//               ].map((stat) => (
-//                 <div key={stat.label} style={{ backgroundColor: "#EEF7F4", borderLeft: "4px solid #F4A118" }} className="rounded-xl p-6">
-//                   <p style={{ color: "#0D3B38" }} className="text-3xl font-bold">{stat.number}</p>
-//                   <p className="text-gray-600 text-sm mt-1">{stat.label}</p>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Our Mission & Vision */}
-//       <section style={{ backgroundColor: "#EEF7F4" }} className="py-16">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <h2 className="text-4xl font-bold text-center mb-12">
-//             Our <span style={{ color: "#F4A118" }}>Mission & Values</span>
-//           </h2>
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-//             {[
-//               {
-//                 icon: "🎯",
-//                 title: "Our Mission",
-//                 desc: "To provide accessible, affordable, and effective Ayurvedic healthcare that treats the root cause of disease and promotes long-term wellness.",
-//               },
-//               {
-//                 icon: "🔭",
-//                 title: "Our Vision",
-//                 desc: "To be India's most trusted Ayurvedic healthcare network, spreading the benefits of holistic healing to every corner of the country.",
-//               },
-//               {
-//                 icon: "💚",
-//                 title: "Our Values",
-//                 desc: "Compassion, integrity, and excellence — we treat every patient with respect and dedication, following the highest standards of Ayurvedic practice.",
-//               },
-//             ].map((item) => (
-//               <div key={item.title} className="bg-white rounded-2xl p-8 text-center shadow-sm">
-//                 <div className="text-5xl mb-4">{item.icon}</div>
-//                 <h3 className="text-xl font-bold mb-3" style={{ color: "#0D3B38" }}>{item.title}</h3>
-//                 <p className="text-gray-600 leading-relaxed">{item.desc}</p>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Our Approach */}
-//       <section className="py-16 bg-white">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-//             <div style={{ backgroundColor: "#0D3B38" }} className="rounded-2xl p-8 text-white">
-//               <h3 className="text-2xl font-bold mb-6" style={{ color: "#F4A118" }}>The BK Arogyam Approach</h3>
-//               <ul className="space-y-4">
-//                 {[
-//                   "Personalized diagnosis based on your unique Dosha constitution",
-//                   "Customized herbal formulations for your specific condition",
-//                   "Panchakarma detoxification to cleanse the body of toxins",
-//                   "Dietary and lifestyle guidance tailored to your needs",
-//                   "Yoga and Pranayama recommendations for holistic healing",
-//                   "Regular follow-up and continuous support throughout treatment",
-//                 ].map((point) => (
-//                   <li key={point} className="flex gap-3 items-start">
-//                     <span style={{ color: "#F4A118" }} className="text-lg mt-0.5">✓</span>
-//                     <span className="text-white/80">{point}</span>
-//                   </li>
-//                 ))}
-//               </ul>
-//             </div>
-//             <div>
-//               <h2 className="text-4xl font-bold mb-6">
-//                 Why <span style={{ color: "#F4A118" }}>Ayurveda Works</span>
-//               </h2>
-//               <p className="text-gray-600 leading-relaxed mb-4">
-//                 Unlike modern medicine that focuses on suppressing symptoms, Ayurveda identifies and eliminates the root cause of disease. This fundamental difference makes Ayurvedic treatment more effective for chronic conditions.
-//               </p>
-//               <p className="text-gray-600 leading-relaxed mb-4">
-//                 Ayurveda recognizes that every person is unique and requires a personalized approach. Our doctors spend time understanding your complete health picture — physical, mental, and spiritual — before creating your treatment protocol.
-//               </p>
-//               <p className="text-gray-600 leading-relaxed">
-//                 The result is a treatment plan that not only heals the current condition but also strengthens the body&apos;s natural immunity to prevent future disease.
-//               </p>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Our Doctors */}
-//       <section style={{ backgroundColor: "#EEF7F4" }} className="py-16">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <h2 className="text-4xl font-bold text-center mb-3">
-//             Our Expert <span style={{ color: "#F4A118" }}>Doctors</span>
-//           </h2>
-//           <p className="text-center text-gray-500 mb-12 max-w-xl mx-auto">
-//             Our team of highly experienced Ayurvedic physicians are dedicated to your healing journey.
-//           </p>
-//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-//             {team.map((doc) => (
-//               <div key={doc.name} className="bg-white rounded-2xl p-6 text-center shadow-sm">
-//                 <div style={{ backgroundColor: "#0D3B38" }} className="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
-//                   {doc.name.split(" ").map((n) => n[0]).join("")}
-//                 </div>
-//                 <h3 className="font-bold text-gray-800 text-lg">{doc.name}</h3>
-//                 <p style={{ color: "#F4A118" }} className="text-sm font-semibold my-1">{doc.role}</p>
-//                 <p className="text-gray-500 text-xs leading-relaxed">{doc.exp}</p>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Milestones */}
-//       <section className="py-16 bg-white">
-//         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-//           <h2 className="text-4xl font-bold text-center mb-12">
-//             Our <span style={{ color: "#F4A118" }}>Journey</span>
-//           </h2>
-//           <div className="relative">
-//             <div style={{ backgroundColor: "#0D3B38" }} className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 hidden md:block" />
-//             <div className="space-y-8">
-//               {milestones.map((m, i) => (
-//                 <div key={m.year} className={`flex flex-col md:flex-row items-center gap-4 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
-//                   <div className="md:w-1/2 flex justify-end">
-//                     <div style={{ backgroundColor: i % 2 === 0 ? "#EEF7F4" : "white", borderLeft: "4px solid #F4A118" }} className="rounded-xl p-4 max-w-xs w-full shadow-sm">
-//                       <p style={{ color: "#F4A118" }} className="font-bold text-lg">{m.year}</p>
-//                       <p className="text-gray-700 text-sm">{m.event}</p>
-//                     </div>
-//                   </div>
-//                   <div style={{ backgroundColor: "#0D3B38" }} className="w-4 h-4 rounded-full flex-shrink-0 z-10 hidden md:block" />
-//                   <div className="md:w-1/2" />
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* CTA */}
-//       <section style={{ backgroundColor: "#0D3B38" }} className="py-12">
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-//           <h2 className="text-3xl font-bold text-white mb-3">
-//             Ready to Begin Your <span style={{ color: "#F4A118" }}>Healing Journey?</span>
-//           </h2>
-//           <p className="text-white/70 mb-6">Consult with our expert doctors today and take the first step towards better health.</p>
-//           <Link href="/contact" style={{ backgroundColor: "#F4A118" }} className="inline-block px-10 py-4 rounded-lg text-white font-bold text-lg hover:opacity-90 transition">
-//             Book Free Consultation
-//           </Link>
-//         </div>
-//       </section>
-//     </>
-//   );
-// }
-
-
-
-
+"use client";
 
 import Link from "next/link";
-import type { Metadata } from "next";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-  title: "About Us - BK Cancer Care",
-  description: "Learn about BK Cancer Care's mission, our expert doctors, and our holistic Ayurvedic approach to healing chronic diseases.",
-};
 
 const team = [
   { name: "Dr. BK Chaurasiya", role: "Kidney Specialist", exp: "Managing Director • 20+ years experience in treating cancer" },
@@ -260,7 +33,30 @@ const milestones = [
   },
 ];
 
+// Support Programs Data - With Links
+const supportPrograms = [
+  { icon: "💊", title: "Chemo Support Program", desc: "Reduce side effects, protect healthy cells", href: "/programs/chemo-support" },
+  { icon: "🛡️", title: "Immunity Restoration", desc: "Strengthen your immune system", href: "/programs/immunity-restoration" },
+  { icon: "🏥", title: "Post Surgery Recovery", desc: "Faster healing, prevent recurrence", href: "/programs/post-surgery-recovery" },
+  { icon: "❤️", title: "Advanced Stage Support", desc: "Palliative care, quality of life", href: "/programs/advanced-stage-support" },
+  { icon: "⚡", title: "Radiation Support", desc: "Protect healthy tissues", href: "/programs/radiation-support" },
+  { icon: "🌿", title: "Maintenance Program", desc: "Prevent recurrence", href: "/programs/maintenance-program" }
+];
+
+// Patient Resources Data - With Links
+const patientResources = [
+  { icon: "📘", title: "Downloadable Guides", desc: "Free PDF guides on diet, yoga, and treatment", href: "/downloadable-guides" },
+  { icon: "🎥", title: "Educational Videos", desc: "Watch expert talks and patient stories", href: "/educational-videos" },
+  { icon: "📖", title: "Articles & Insights", desc: "Latest research and health tips", href: "/anti-cancer-diet" },
+  { icon: "❓", title: "FAQs", desc: "Answers to common questions", href: "/faqs" }
+];
+
 export default function AboutPage() {
+  // Handle download click
+  const handleDownloadGuide = () => {
+    window.open("https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/21/Gemini_Generated_Image_qr3smaqr3smaqr3s1.png", "_blank");
+  };
+
   return (
     <>
       {/* Page Banner with NEW Image - Fully Responsive */}
@@ -304,16 +100,17 @@ export default function AboutPage() {
               {/* CTA Buttons - Responsive */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link 
-                  href="/contact" 
-                  className="px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 bg-gradient-to-r from-[#F4A118] to-[#d4600a] rounded-xl text-white font-bold text-sm sm:text-base md:text-lg hover:opacity-90 transition-all hover:scale-105 shadow-2xl text-center"
+                  href="/contact"
+                  className="inline-block px-6 sm:px-8 py-3 rounded-lg text-white font-semibold text-sm sm:text-base text-center hover:scale-105 transition"
+                  style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
                 >
-                  Free Consultation
+                  Book Free Consultation →
                 </Link>
                 <Link 
-                  href="/disease" 
-                  className="px-6 sm:px-7 md:px-8 py-3 sm:py-3.5 md:py-4 bg-white/10 backdrop-blur-sm rounded-xl text-white font-bold text-sm sm:text-base md:text-lg border-2 border-white/30 hover:bg-white/20 transition-all hover:scale-105 text-center"
+                  href="/therapies"
+                  className="inline-block px-6 sm:px-8 py-3 rounded-lg text-white font-semibold text-sm sm:text-base text-center border border-white/30 hover:bg-white/10 transition"
                 >
-                  View Treatments
+                  Learn About Therapies →
                 </Link>
               </div>
 
@@ -365,6 +162,14 @@ export default function AboutPage() {
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                 We specialize in treating chronic conditions such as cancer, kidney disease, diabetes, liver disease, and more — through personalized Ayurvedic protocols that address the root cause rather than just managing symptoms.
               </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link href="/how-it-works" className="text-[#F4A118] font-semibold text-sm cursor-pointer hover:underline">
+                  Learn How We Work →
+                </Link>
+                <Link href="/programs" className="text-[#0D3B38] font-semibold text-sm cursor-pointer hover:underline">
+                  View Support Programs →
+                </Link>
+              </div>
             </div>
             
             {/* Right side - Image - Responsive height */}
@@ -407,7 +212,7 @@ export default function AboutPage() {
               </div>
               <div className="p-5 sm:p-6 md:p-8 text-center">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-2xl sm:text-3xl mx-auto -mt-8 sm:-mt-10 md:-mt-12 mb-3 sm:mb-4 text-white border-4 border-white shadow-lg">
-                  
+                  🎯
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#0D3B38]">Our Mission</h3>
                 <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
@@ -428,7 +233,7 @@ export default function AboutPage() {
               </div>
               <div className="p-5 sm:p-6 md:p-8 text-center">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center text-2xl sm:text-3xl mx-auto -mt-8 sm:-mt-10 md:-mt-12 mb-3 sm:mb-4 text-white border-4 border-white shadow-lg">
-                  
+                  🔭
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#0D3B38]">Our Vision</h3>
                 <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
@@ -449,7 +254,7 @@ export default function AboutPage() {
               </div>
               <div className="p-5 sm:p-6 md:p-8 text-center">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-2xl sm:text-3xl mx-auto -mt-8 sm:-mt-10 md:-mt-12 mb-3 sm:mb-4 text-white border-4 border-white shadow-lg">
-                  
+                  💚
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#0D3B38]">Our Values</h3>
                 <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
@@ -478,13 +283,18 @@ export default function AboutPage() {
                   "Dietary and lifestyle guidance tailored to your needs",
                   "Yoga and Pranayama recommendations for holistic healing",
                   "Regular follow-up and continuous support throughout treatment",
-                ].map((point) => (
-                  <li key={point} className="flex gap-2 sm:gap-3 items-start group hover:translate-x-2 transition-transform">
+                ].map((point, idx) => (
+                  <li key={idx} className="flex gap-2 sm:gap-3 items-start group hover:translate-x-2 transition-transform">
                     <span className="text-[#F4A118] text-base sm:text-lg mt-0.5 flex-shrink-0">✓</span>
                     <span className="text-white/80 group-hover:text-white text-xs sm:text-sm">{point}</span>
                   </li>
                 ))}
               </ul>
+              <div className="mt-6 pt-4 border-t border-white/20">
+                <Link href="/how-it-works" className="text-[#F4A118] hover:text-white transition text-sm font-semibold cursor-pointer">
+                  Learn About Our Process →
+                </Link>
+              </div>
             </div>
             <div>
               <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-4 tracking-wide bg-[#EEF7F4] text-[#0D3B38]">
@@ -502,16 +312,67 @@ export default function AboutPage() {
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
                 The result is a treatment plan that not only heals the current condition but also strengthens the body's natural immunity to prevent future disease.
               </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link href="/research" className="text-[#F4A118] font-semibold text-sm cursor-pointer hover:underline">
+                  View Our Research →
+                </Link>
+                <Link href="/anti-cancer-diet" className="text-[#0D3B38] font-semibold text-sm cursor-pointer hover:underline">
+                  Anti-Cancer Diet Guide →
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Our Doctors - Responsive Grid */}
+      {/* Support Programs Section - All 6 Programs with Links */}
       <section className="py-10 sm:py-12 md:py-16 bg-[#EEF7F4]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
             <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide bg-white text-[#0D3B38]">
+              Our Services
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+              Cancer <span className="text-[#F4A118]">Support Programs</span>
+            </h2>
+            <p className="text-gray-500 text-xs sm:text-sm mt-2 sm:mt-3 max-w-xl mx-auto px-4">
+              Specialized programs for every stage of your cancer journey
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
+            {supportPrograms.map((program, i) => (
+              <Link 
+                key={i} 
+                href={program.href}
+                className="bg-white rounded-xl p-5 sm:p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 group cursor-pointer block"
+                style={{ border: "1px solid #e5f0ec" }}
+              >
+                <div className="text-4xl sm:text-5xl mb-3 group-hover:scale-110 transition-transform">{program.icon}</div>
+                <h3 className="font-bold text-base sm:text-lg mb-2 text-[#0D3B38]">{program.title}</h3>
+                <p className="text-gray-500 text-xs sm:text-sm">{program.desc}</p>
+                <span className="inline-block mt-3 text-[#F4A118] text-xs font-semibold group-hover:underline">Learn More →</span>
+              </Link>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8 sm:mt-10">
+            <Link 
+              href="/services" 
+              className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white font-semibold text-sm sm:text-base cursor-pointer hover:opacity-90 transition"
+              style={{ background: "linear-gradient(135deg, #0D3B38, #1a5c57)" }}
+            >
+              View All Programs →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Doctors - Responsive Grid */}
+      <section className="py-10 sm:py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide bg-[#EEF7F4] text-[#0D3B38]">
               Our Team
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
@@ -527,7 +388,7 @@ export default function AboutPage() {
             {team.map((doc, index) => (
               <div 
                 key={doc.name} 
-                className="bg-white rounded-2xl p-4 sm:p-5 md:p-6 text-center shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2"
+                className="bg-[#EEF7F4] rounded-2xl p-4 sm:p-5 md:p-6 text-center shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 cursor-pointer"
               >
                 <div className="w-20 h-20 sm:w-22 sm:h-22 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#0D3B38] to-[#1a5c57] flex items-center justify-center text-white text-2xl sm:text-3xl font-bold mx-auto mb-3 sm:mb-4 shadow-xl">
                   {doc.name.split(" ").map((n) => n[0]).join("")}
@@ -537,6 +398,69 @@ export default function AboutPage() {
                 <p className="text-gray-500 text-[10px] sm:text-xs leading-relaxed px-1 sm:px-2">{doc.exp}</p>
               </div>
             ))}
+          </div>
+          
+          <div className="text-center mt-8 sm:mt-10">
+            <Link 
+              href="/doctors" 
+              className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white font-semibold text-sm sm:text-base cursor-pointer hover:opacity-90 transition"
+              style={{ background: "linear-gradient(135deg, #0D3B38, #1a5c57)" }}
+            >
+              Meet All Doctors →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Anti-Cancer Diet Section - With Image and Download Link */}
+      <section className="py-10 sm:py-12 md:py-16 bg-[#EEF7F4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div>
+              <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-4 tracking-wide bg-white text-[#0D3B38]">
+                Food as Medicine
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-5 md:mb-6">
+                Anti-Cancer <span className="text-[#F4A118]">Diet Guide</span>
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
+                Get personalized diet plans to boost immunity, reduce treatment side effects, and support your body's natural healing process.
+              </p>
+              <ul className="space-y-2 mb-5">
+                {[
+                  "Ayurvedic nutrition principles",
+                  "Foods that boost immunity",
+                  "Recipes for cancer patients",
+                  "Foods to avoid during treatment"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
+                    <span className="text-[#F4A118]">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={handleDownloadGuide}
+                className="inline-block px-6 sm:px-8 py-3 rounded-lg text-white font-semibold text-sm sm:text-base cursor-pointer transition hover:opacity-90"
+                style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
+              >
+                Download Free Diet Guide →
+              </button>
+            </div>
+            <div className="bg-white rounded-2xl p-6 sm:p-8 text-center shadow-xl" style={{ border: "1px solid #e5f0ec" }}>
+              <img
+                src="https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/21/Fazlani-Authentic-Ayurveda.jpeg"
+                alt="Anti-Cancer Diet Guide"
+                className="w-full h-auto rounded-xl mb-4"
+              />
+              <p className="font-semibold text-lg sm:text-xl text-[#0D3B38] mb-2">"Food is the first medicine"</p>
+              <p className="text-gray-500 text-sm">- Ayurveda</p>
+              <div className="mt-6 pt-4 border-t border-gray-200">
+                <Link href="/patient-resources" className="text-[#F4A118] font-semibold text-sm cursor-pointer hover:underline">
+                  More Patient Resources →
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -564,14 +488,19 @@ export default function AboutPage() {
                 <div key={m.year} className={`flex flex-col md:flex-row items-center gap-3 sm:gap-4 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}>
                   <div className="md:w-1/2 flex justify-end w-full">
                     <div 
-                      className="bg-[#EEF7F4] rounded-xl p-4 sm:p-5 w-full md:max-w-xs shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+                      className="bg-[#EEF7F4] rounded-xl p-4 sm:p-5 w-full md:max-w-xs shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
                       style={{ borderLeft: "4px solid #F4A118" }}
                     >
                       <p className="font-bold text-lg sm:text-xl text-[#F4A118] mb-1 sm:mb-2">{m.year}</p>
                       <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">{m.event}</p>
-                      <button className="mt-2 sm:mt-3 text-[10px] sm:text-xs bg-[#0D3B38] text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg hover:bg-[#1a5c57] transition">
+                      <a 
+                        href={`https://maps.google.com/?q=${encodeURIComponent(m.event)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 sm:mt-3 text-[10px] sm:text-xs bg-[#0D3B38] text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg inline-block cursor-pointer hover:bg-[#1a5c57] transition"
+                      >
                         Get Directions
-                      </button>
+                      </a>
                     </div>
                   </div>
                   <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-r from-[#0D3B38] to-[#1a5c57] flex-shrink-0 z-10 hidden md:flex items-center justify-center shadow-lg">
@@ -581,6 +510,90 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+          </div>
+          
+          <div className="text-center mt-8 sm:mt-10">
+            <Link 
+              href="/contact" 
+              className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white font-semibold text-sm sm:text-base cursor-pointer hover:opacity-90 transition"
+              style={{ background: "linear-gradient(135deg, #0D3B38, #1a5c57)" }}
+            >
+              View All Centers →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Patient Resources Section - All 4 Resources with Links */}
+      <section className="py-10 sm:py-12 md:py-16 bg-[#EEF7F4]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide bg-white text-[#0D3B38]">
+              Helpful Resources
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+              Patient <span className="text-[#F4A118]">Resources</span>
+            </h2>
+            <p className="text-gray-500 text-xs sm:text-sm mt-2 sm:mt-3 max-w-xl mx-auto px-4">
+              Educational materials, guides, and support for your healing journey
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6">
+            {patientResources.map((resource, i) => (
+              <Link 
+                key={i} 
+                href={resource.href}
+                className="bg-white rounded-xl p-5 sm:p-6 text-center hover:shadow-xl transition-all hover:-translate-y-1 group cursor-pointer block"
+                style={{ border: "1px solid #e5f0ec" }}
+              >
+                <div className="text-4xl sm:text-5xl mb-3 group-hover:scale-110 transition-transform">{resource.icon}</div>
+                <h3 className="font-bold text-base sm:text-lg mb-2 text-[#0D3B38]">{resource.title}</h3>
+                <p className="text-gray-500 text-xs sm:text-sm">{resource.desc}</p>
+                <span className="inline-block mt-3 text-[#F4A118] text-xs font-semibold group-hover:underline">Explore →</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How Our Program Works - Simple Section */}
+      <section className="py-10 sm:py-12 md:py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+            <span className="inline-block text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-2 sm:mb-3 tracking-wide bg-[#EEF7F4] text-[#0D3B38]">
+              Simple Process
+            </span>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+              How Our <span className="text-[#F4A118]">Program Works</span>
+            </h2>
+            <p className="text-gray-500 text-xs sm:text-sm mt-2 sm:mt-3 max-w-xl mx-auto px-4">
+              Simple 6-step journey to better health
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 text-center">
+            {[
+              { step: "1", title: "Submit Reports" },
+              { step: "2", title: "Doctor Review" },
+              { step: "3", title: "Personalized Plan" },
+              { step: "4", title: "Start Program" },
+              { step: "5", title: "Regular Monitoring" },
+              { step: "6", title: "Long-term Support" }
+            ].map((step, i) => (
+              <div key={i} className="relative">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#F4A118] text-white flex items-center justify-center mx-auto mb-2 font-bold text-sm sm:text-base">
+                  {step.step}
+                </div>
+                <p className="text-[10px] sm:text-xs font-semibold text-gray-700">{step.title}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-6 sm:mt-8">
+            <Link href="/how-it-works" className="text-[#F4A118] font-semibold text-sm cursor-pointer hover:underline">
+              View Complete Process →
+            </Link>
           </div>
         </div>
       </section>
@@ -598,12 +611,21 @@ export default function AboutPage() {
           <p className="text-white/80 text-xs sm:text-sm md:text-base mb-5 sm:mb-6 md:mb-8 max-w-2xl mx-auto px-4">
             Consult with our expert doctors today and take the first step towards better health with personalized Ayurvedic care.
           </p>
-          <Link 
-            href="/contact" 
-            className="inline-block px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 rounded-xl text-white font-bold text-sm sm:text-base md:text-lg shadow-2xl bg-gradient-to-r from-[#F4A118] to-[#d4600a] hover:from-[#d4600a] hover:to-[#F4A118] transition-all hover:scale-105"
-          >
-            Book Free Consultation →
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link 
+              href="/contact" 
+              className="inline-block px-6 sm:px-8 py-3 rounded-lg text-white font-semibold text-sm sm:text-base text-center hover:scale-105 transition"
+              style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
+            >
+              Book Free Consultation →
+            </Link>
+            <Link 
+              href="/doctors" 
+              className="inline-block px-6 sm:px-8 py-3 rounded-lg text-white font-semibold text-sm sm:text-base text-center border border-white/30 hover:bg-white/10 transition"
+            >
+              Meet Our Doctors
+            </Link>
+          </div>
         </div>
       </section>
     </>
