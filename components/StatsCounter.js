@@ -11,19 +11,7 @@ const statsData = [
   { target: 50000, suffix: "+",         label: "Cancer Deaths Averted" },
 ];
 
-function StatItem({
-  target,
-  suffix,
-  label,
-  triggered,
-  borderRight,
-}: {
-  target: number;
-  suffix: string;
-  label: string;
-  triggered: boolean;
-  borderRight: boolean;
-}) {
+function StatItem({ target, suffix, label, triggered, borderRight }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -59,7 +47,7 @@ function StatItem({
 }
 
 export default function StatsCounter() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef(null);
   const [triggered, setTriggered] = useState(false);
 
   useEffect(() => {
@@ -84,7 +72,9 @@ export default function StatsCounter() {
           {statsData.map((s, i) => (
             <StatItem
               key={i}
-              {...s}
+              target={s.target}
+              suffix={s.suffix}
+              label={s.label}
               triggered={triggered}
               borderRight={i < statsData.length - 1}
             />

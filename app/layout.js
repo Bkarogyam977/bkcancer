@@ -1,18 +1,13 @@
-import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "BK Arogyam - 100% Ayurvedic Treatment",
   description: "BK Arogyam provides holistic Ayurvedic treatment for cancer, kidney disease, and other chronic conditions using ancient Indian healing wisdom.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="antialiased">

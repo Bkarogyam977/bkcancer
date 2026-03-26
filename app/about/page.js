@@ -1,11 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import type { Metadata } from "next";
 import Image from "next/image";
-
-// Note: Metadata export won't work in Client Component
-// If you need metadata, you'll need to separate this into a layout or keep it server-side
 
 const team = [
   { name: "Dr. BK Chaurasiya", role: "Kidney Specialist", exp: "Managing Director • 20+ years experience in treating cancer" },
@@ -103,12 +99,19 @@ export default function AboutPage() {
 
               {/* CTA Buttons - Responsive */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <span className="">
-                 
-                </span>
-                <span className="">
-                 
-                </span>
+                <Link 
+                  href="/contact"
+                  className="inline-block px-6 sm:px-8 py-3 rounded-lg text-white font-semibold text-sm sm:text-base text-center hover:scale-105 transition"
+                  style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
+                >
+                  Book Free Consultation →
+                </Link>
+                <Link 
+                  href="/therapies"
+                  className="inline-block px-6 sm:px-8 py-3 rounded-lg text-white font-semibold text-sm sm:text-base text-center border border-white/30 hover:bg-white/10 transition"
+                >
+                  Learn About Therapies →
+                </Link>
               </div>
 
               {/* Simple Stats Line - Responsive */}
@@ -160,12 +163,12 @@ export default function AboutPage() {
                 We specialize in treating chronic conditions such as cancer, kidney disease, diabetes, liver disease, and more — through personalized Ayurvedic protocols that address the root cause rather than just managing symptoms.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                <span className="text-[#F4A118] font-semibold text-sm cursor-pointer">
+                <Link href="/how-it-works" className="text-[#F4A118] font-semibold text-sm cursor-pointer hover:underline">
                   Learn How We Work →
-                </span>
-                <span className="text-[#0D3B38] font-semibold text-sm cursor-pointer">
+                </Link>
+                <Link href="/programs" className="text-[#0D3B38] font-semibold text-sm cursor-pointer hover:underline">
                   View Support Programs →
-                </span>
+                </Link>
               </div>
             </div>
             
@@ -280,17 +283,17 @@ export default function AboutPage() {
                   "Dietary and lifestyle guidance tailored to your needs",
                   "Yoga and Pranayama recommendations for holistic healing",
                   "Regular follow-up and continuous support throughout treatment",
-                ].map((point) => (
-                  <li key={point} className="flex gap-2 sm:gap-3 items-start group hover:translate-x-2 transition-transform">
+                ].map((point, idx) => (
+                  <li key={idx} className="flex gap-2 sm:gap-3 items-start group hover:translate-x-2 transition-transform">
                     <span className="text-[#F4A118] text-base sm:text-lg mt-0.5 flex-shrink-0">✓</span>
                     <span className="text-white/80 group-hover:text-white text-xs sm:text-sm">{point}</span>
                   </li>
                 ))}
               </ul>
               <div className="mt-6 pt-4 border-t border-white/20">
-                <span className="text-[#F4A118] hover:text-white transition text-sm font-semibold cursor-pointer">
+                <Link href="/how-it-works" className="text-[#F4A118] hover:text-white transition text-sm font-semibold cursor-pointer">
                   Learn About Our Process →
-                </span>
+                </Link>
               </div>
             </div>
             <div>
@@ -310,12 +313,12 @@ export default function AboutPage() {
                 The result is a treatment plan that not only heals the current condition but also strengthens the body's natural immunity to prevent future disease.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
-                <span className="text-[#F4A118] font-semibold text-sm cursor-pointer">
+                <Link href="/research" className="text-[#F4A118] font-semibold text-sm cursor-pointer hover:underline">
                   View Our Research →
-                </span>
-                <span className="text-[#0D3B38] font-semibold text-sm cursor-pointer">
+                </Link>
+                <Link href="/anti-cancer-diet" className="text-[#0D3B38] font-semibold text-sm cursor-pointer hover:underline">
                   Anti-Cancer Diet Guide →
-                </span>
+                </Link>
               </div>
             </div>
           </div>
@@ -354,9 +357,13 @@ export default function AboutPage() {
           </div>
           
           <div className="text-center mt-8 sm:mt-10">
-            <span className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white font-semibold text-sm sm:text-base cursor-pointer" style={{ background: "" }}>
-             
-            </span>
+            <Link 
+              href="/services" 
+              className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white font-semibold text-sm sm:text-base cursor-pointer hover:opacity-90 transition"
+              style={{ background: "linear-gradient(135deg, #0D3B38, #1a5c57)" }}
+            >
+              View All Programs →
+            </Link>
           </div>
         </div>
       </section>
@@ -394,9 +401,13 @@ export default function AboutPage() {
           </div>
           
           <div className="text-center mt-8 sm:mt-10">
-            <span className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white font-semibold text-sm sm:text-base cursor-pointer" style={{ background: "linear-gradient(135deg, #0D3B38, #1a5c57)" }}>
+            <Link 
+              href="/doctors" 
+              className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white font-semibold text-sm sm:text-base cursor-pointer hover:opacity-90 transition"
+              style={{ background: "linear-gradient(135deg, #0D3B38, #1a5c57)" }}
+            >
               Meet All Doctors →
-            </span>
+            </Link>
           </div>
         </div>
       </section>
@@ -445,9 +456,9 @@ export default function AboutPage() {
               <p className="font-semibold text-lg sm:text-xl text-[#0D3B38] mb-2">"Food is the first medicine"</p>
               <p className="text-gray-500 text-sm">- Ayurveda</p>
               <div className="mt-6 pt-4 border-t border-gray-200">
-                <span className="text-[#F4A118] font-semibold text-sm cursor-pointer">
+                <Link href="/patient-resources" className="text-[#F4A118] font-semibold text-sm cursor-pointer hover:underline">
                   More Patient Resources →
-                </span>
+                </Link>
               </div>
             </div>
           </div>
@@ -482,9 +493,14 @@ export default function AboutPage() {
                     >
                       <p className="font-bold text-lg sm:text-xl text-[#F4A118] mb-1 sm:mb-2">{m.year}</p>
                       <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">{m.event}</p>
-                      <span className="mt-2 sm:mt-3 text-[10px] sm:text-xs bg-[#0D3B38] text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg inline-block cursor-pointer">
+                      <a 
+                        href={`https://maps.google.com/?q=${encodeURIComponent(m.event)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 sm:mt-3 text-[10px] sm:text-xs bg-[#0D3B38] text-white px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg inline-block cursor-pointer hover:bg-[#1a5c57] transition"
+                      >
                         Get Directions
-                      </span>
+                      </a>
                     </div>
                   </div>
                   <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-r from-[#0D3B38] to-[#1a5c57] flex-shrink-0 z-10 hidden md:flex items-center justify-center shadow-lg">
@@ -497,9 +513,13 @@ export default function AboutPage() {
           </div>
           
           <div className="text-center mt-8 sm:mt-10">
-            <span className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white font-semibold text-sm sm:text-base cursor-pointer" style={{ background: "linear-gradient(135deg, #0D3B38, #1a5c57)" }}>
+            <Link 
+              href="/contact" 
+              className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-white font-semibold text-sm sm:text-base cursor-pointer hover:opacity-90 transition"
+              style={{ background: "linear-gradient(135deg, #0D3B38, #1a5c57)" }}
+            >
               View All Centers →
-            </span>
+            </Link>
           </div>
         </div>
       </section>
@@ -571,9 +591,9 @@ export default function AboutPage() {
           </div>
           
           <div className="text-center mt-6 sm:mt-8">
-            <span className="text-[#F4A118] font-semibold text-sm cursor-pointer">
+            <Link href="/how-it-works" className="text-[#F4A118] font-semibold text-sm cursor-pointer hover:underline">
               View Complete Process →
-            </span>
+            </Link>
           </div>
         </div>
       </section>
@@ -592,12 +612,19 @@ export default function AboutPage() {
             Consult with our expert doctors today and take the first step towards better health with personalized Ayurvedic care.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <span className="">
-             
-            </span>
-            <span className="">
-             
-            </span>
+            <Link 
+              href="/contact" 
+              className="inline-block px-6 sm:px-8 py-3 rounded-lg text-white font-semibold text-sm sm:text-base text-center hover:scale-105 transition"
+              style={{ background: "linear-gradient(135deg, #F4A118, #d4600a)" }}
+            >
+              Book Free Consultation →
+            </Link>
+            <Link 
+              href="/doctors" 
+              className="inline-block px-6 sm:px-8 py-3 rounded-lg text-white font-semibold text-sm sm:text-base text-center border border-white/30 hover:bg-white/10 transition"
+            >
+              Meet Our Doctors
+            </Link>
           </div>
         </div>
       </section>
