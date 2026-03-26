@@ -257,7 +257,7 @@ const slides = [
     accentWord: "Therapy Works",
     sub: "Research-based medicines | Painless therapy | Affordable | Natural procedure",
     description: "No side effects like hair loss, infections, pain, nausea, vomiting. Normal cells are protected while targeting cancer cells.",
-    cta1: { label: "📞 Free Consultation", href: "/contact" },
+    cta1: { label: "📞 Book Consultation", href: "/contact" },
     cta2: { label: "Learn More", href: "/therapy" },
     statBoxes: [
       { value: "5M+", label: "Lives Touched" },
@@ -270,7 +270,7 @@ const slides = [
       "Affordable",
       "Natural Procedure"
     ],
-    image: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/8/woman-with-skin-cancer-talking-with-her-doctor.jpg",
+    image: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/22/Gemini_Generated_Image_7l8fup7l8fup7l8f1.png",
     imageAlt: "Doctor consulting with cancer patient"
   },
   {
@@ -320,7 +320,7 @@ const slides = [
       "Treatment Starts",
       "Regular Follow-up"
     ],
-    image: "https://regalhospital.com/wp-content/uploads/2023/11/Combating-Cancer-with-Awareness-and-Advanced-Care-in-Bangalore-Regal-Hospital.png",
+    image: "https://bk-erp-file.s3.amazonaws.com/offer-banners/offersbanners/2026/3/22/hqdefault.jpeg",
     imageAlt: "Advanced Cancer Care"
   },
 ];
